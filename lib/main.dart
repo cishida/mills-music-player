@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:mills_music_player/app/app.locator.dart';
 import 'package:mills_music_player/app/app.router.dart';
+import 'package:mills_music_player/theme.dart';
 import 'package:stacked_services/stacked_services.dart';
 
 void main() {
@@ -17,10 +18,7 @@ class MyApp extends StatelessWidget {
   Widget build(BuildContext context) {
     return MaterialApp(
       title: 'Flutter Demo',
-      theme: ThemeData(
-        primarySwatch: Colors.blue,
-        visualDensity: VisualDensity.adaptivePlatformDensity,
-      ),
+      theme: theme(),
       navigatorKey: StackedService.navigatorKey,
       onGenerateRoute: StackedRouter().onGenerateRoute,
     );
