@@ -7,7 +7,7 @@ part 'song.g.dart';
 class Song with _$Song {
   factory Song({
     required String id,
-    String? name,
+    String? title,
     String? artist,
     Duration? duration,
   }) = _Song;

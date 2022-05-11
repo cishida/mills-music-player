@@ -21,7 +21,7 @@ Song _$SongFromJson(Map<String, dynamic> json) {
 /// @nodoc
 mixin _$Song {
   String get id => throw _privateConstructorUsedError;
-  String? get name => throw _privateConstructorUsedError;
+  String? get title => throw _privateConstructorUsedError;
   String? get artist => throw _privateConstructorUsedError;
   Duration? get duration => throw _privateConstructorUsedError;
 
@@ -34,7 +34,7 @@ mixin _$Song {
 abstract class $SongCopyWith<$Res> {
   factory $SongCopyWith(Song value, $Res Function(Song) then) =
       _$SongCopyWithImpl<$Res>;
-  $Res call({String id, String? name, String? artist, Duration? duration});
+  $Res call({String id, String? title, String? artist, Duration? duration});
 }
 
 /// @nodoc
@@ -48,7 +48,7 @@ class _$SongCopyWithImpl<$Res> implements $SongCopyWith<$Res> {
   @override
   $Res call({
     Object? id = freezed,
-    Object? name = freezed,
+    Object? title = freezed,
     Object? artist = freezed,
     Object? duration = freezed,
   }) {
@@ -57,9 +57,9 @@ class _$SongCopyWithImpl<$Res> implements $SongCopyWith<$Res> {
           ? _value.id
           : id // ignore: cast_nullable_to_non_nullable
               as String,
-      name: name == freezed
-          ? _value.name
-          : name // ignore: cast_nullable_to_non_nullable
+      title: title == freezed
+          ? _value.title
+          : title // ignore: cast_nullable_to_non_nullable
               as String?,
       artist: artist == freezed
           ? _value.artist
@@ -78,7 +78,7 @@ abstract class _$$_SongCopyWith<$Res> implements $SongCopyWith<$Res> {
   factory _$$_SongCopyWith(_$_Song value, $Res Function(_$_Song) then) =
       __$$_SongCopyWithImpl<$Res>;
   @override
-  $Res call({String id, String? name, String? artist, Duration? duration});
+  $Res call({String id, String? title, String? artist, Duration? duration});
 }
 
 /// @nodoc
@@ -93,7 +93,7 @@ class __$$_SongCopyWithImpl<$Res> extends _$SongCopyWithImpl<$Res>
   @override
   $Res call({
     Object? id = freezed,
-    Object? name = freezed,
+    Object? title = freezed,
     Object? artist = freezed,
     Object? duration = freezed,
   }) {
@@ -102,9 +102,9 @@ class __$$_SongCopyWithImpl<$Res> extends _$SongCopyWithImpl<$Res>
           ? _value.id
           : id // ignore: cast_nullable_to_non_nullable
               as String,
-      name: name == freezed
-          ? _value.name
-          : name // ignore: cast_nullable_to_non_nullable
+      title: title == freezed
+          ? _value.title
+          : title // ignore: cast_nullable_to_non_nullable
               as String?,
       artist: artist == freezed
           ? _value.artist
@@ -121,14 +121,14 @@ class __$$_SongCopyWithImpl<$Res> extends _$SongCopyWithImpl<$Res>
 /// @nodoc
 @JsonSerializable()
 class _$_Song implements _Song {
-  _$_Song({required this.id, this.name, this.artist, this.duration});
+  _$_Song({required this.id, this.title, this.artist, this.duration});
 
   factory _$_Song.fromJson(Map<String, dynamic> json) => _$$_SongFromJson(json);
 
   @override
   final String id;
   @override
-  final String? name;
+  final String? title;
   @override
   final String? artist;
   @override
@@ -136,7 +136,7 @@ class _$_Song implements _Song {
 
   @override
   String toString() {
-    return 'Song(id: $id, name: $name, artist: $artist, duration: $duration)';
+    return 'Song(id: $id, title: $title, artist: $artist, duration: $duration)';
   }
 
   @override
@@ -145,7 +145,7 @@ class _$_Song implements _Song {
         (other.runtimeType == runtimeType &&
             other is _$_Song &&
             const DeepCollectionEquality().equals(other.id, id) &&
-            const DeepCollectionEquality().equals(other.name, name) &&
+            const DeepCollectionEquality().equals(other.title, title) &&
             const DeepCollectionEquality().equals(other.artist, artist) &&
             const DeepCollectionEquality().equals(other.duration, duration));
   }
@@ -155,7 +155,7 @@ class _$_Song implements _Song {
   int get hashCode => Object.hash(
       runtimeType,
       const DeepCollectionEquality().hash(id),
-      const DeepCollectionEquality().hash(name),
+      const DeepCollectionEquality().hash(title),
       const DeepCollectionEquality().hash(artist),
       const DeepCollectionEquality().hash(duration));
 
@@ -173,7 +173,7 @@ class _$_Song implements _Song {
 abstract class _Song implements Song {
   factory _Song(
       {required final String id,
-      final String? name,
+      final String? title,
       final String? artist,
       final Duration? duration}) = _$_Song;
 
@@ -182,7 +182,7 @@ abstract class _Song implements Song {
   @override
   String get id => throw _privateConstructorUsedError;
   @override
-  String? get name => throw _privateConstructorUsedError;
+  String? get title => throw _privateConstructorUsedError;
   @override
   String? get artist => throw _privateConstructorUsedError;
   @override

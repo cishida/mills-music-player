@@ -4,7 +4,7 @@ class SongData {
   static List<Song> songs = [
     Song(
       id: '18fuewhr3asdfiuhewufh',
-      name: 'Test song 1',
+      title: 'Test song 1',
       artist: 'Test artist 1',
       duration: const Duration(
         seconds: 201,
@@ -12,7 +12,7 @@ class SongData {
     ),
     Song(
       id: '7v8gahsviuehw87efhsid',
-      name: 'Test song 2',
+      title: 'Test song 2',
       artist: 'Test artist 1',
       duration: const Duration(
         seconds: 164,
@@ -20,7 +20,7 @@ class SongData {
     ),
     Song(
       id: '389fgharuh89fhw8fhwef',
-      name: 'Test song 3',
+      title: 'Test song 3',
       artist: 'Test artist 2',
       duration: const Duration(
         seconds: 249,
@@ -28,7 +28,7 @@ class SongData {
     ),
     Song(
       id: '3849tghae8whefeifh3w8',
-      name: 'Test song 4',
+      title: 'Test song 4',
       artist: 'Test artist 3',
       duration: const Duration(
         seconds: 193,

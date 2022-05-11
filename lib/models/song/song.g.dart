@@ -8,7 +8,7 @@ part of 'song.dart';
 
 _$_Song _$$_SongFromJson(Map<String, dynamic> json) => _$_Song(
       id: json['id'] as String,
-      name: json['name'] as String?,
+      title: json['title'] as String?,
       artist: json['artist'] as String?,
       duration: json['duration'] == null
           ? null
@@ -17,7 +17,7 @@ _$_Song _$$_SongFromJson(Map<String, dynamic> json) => _$_Song(
 
 Map<String, dynamic> _$$_SongToJson(_$_Song instance) => <String, dynamic>{
       'id': instance.id,
-      'name': instance.name,
+      'title': instance.title,
       'artist': instance.artist,
       'duration': instance.duration?.inMicroseconds,
     };
