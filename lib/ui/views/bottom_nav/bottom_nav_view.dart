@@ -14,9 +14,17 @@ class BottomNavView extends StatefulWidget {
 
 class _BottomNavViewState extends State<BottomNavView> {
   final Map<int, Widget> _viewCache = <int, Widget>{};
+  final List<String> tabNames = [
+    'Home',
+    'Albums',
+    'Playlists',
+    'Settings',
+  ];
 
   @override
   Widget build(BuildContext context) {
+    final Size size = MediaQuery.of(context).size;
+
     return ViewModelBuilder<BottomNavViewModel>.reactive(
       builder: (context, viewModel, child) => Scaffold(
         body: getViewForIndex(viewModel.currentTabIndex),
@@ -26,22 +34,22 @@ class _BottomNavViewState extends State<BottomNavView> {
           currentIndex: viewModel.currentTabIndex,
           onTap: viewModel.setTabIndex,
           type: BottomNavigationBarType.fixed,
-          items: const [
+          items: [
             BottomNavigationBarItem(
-              label: 'Home',
-              icon: Icon(Icons.home),
+              label: tabNames[0],
+              icon: const Icon(Icons.home),
             ),
             BottomNavigationBarItem(
-              label: 'Albums',
-              icon: Icon(Icons.folder),
+              label: tabNames[1],
+              icon: const Icon(Icons.folder),
             ),
             BottomNavigationBarItem(
-              label: 'Playlists',
-              icon: Icon(Icons.add_to_photos),
+              label: tabNames[2],
+              icon: const Icon(Icons.add_to_photos),
             ),
             BottomNavigationBarItem(
-              label: 'Settings',
-              icon: Icon(Icons.settings),
+              label: tabNames[3],
+              icon: const Icon(Icons.settings),
             ),
           ],
         ),
