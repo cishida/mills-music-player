@@ -21,7 +21,7 @@ class TopNavBar extends StatelessWidget {
         border: Border(
           bottom: BorderSide(
             width: 1.0,
-            color: ConstColors.divider,
+            color: ConstColors.lightDivider,
           ),
         ),
       ),
