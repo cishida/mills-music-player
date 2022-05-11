@@ -1,4 +1,5 @@
 import 'package:mills_music_player/services/counter_service.dart';
+import 'package:mills_music_player/ui/views/home/home_view.dart';
 import 'package:mills_music_player/ui/views/landing/landing_view.dart';
 import 'package:stacked/stacked_annotations.dart';
 import 'package:stacked_services/stacked_services.dart';
@@ -9,9 +10,9 @@ import 'package:stacked_services/stacked_services.dart';
       page: LandingView,
       initial: true,
     ),
-    // MaterialRoute(
-    //   page: HomeView,
-    // )
+    MaterialRoute(
+      page: HomeView,
+    )
   ],
   dependencies: [
     LazySingleton(

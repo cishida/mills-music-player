@@ -13,7 +13,7 @@ class LandingView extends StatelessWidget {
   Widget build(BuildContext context) {
     final size = MediaQuery.of(context).size;
 
-    return ViewModelBuilder.reactive(
+    return ViewModelBuilder<LandingViewModel>.reactive(
       viewModelBuilder: () => LandingViewModel(),
       builder: (context, model, child) => Scaffold(
         body: Center(
@@ -61,9 +61,7 @@ class LandingView extends StatelessWidget {
                     padding: const EdgeInsets.all(30.0),
                     child: FullWidthPillButton(
                       text: 'ENTER',
-                      onPressed: () {
-                        debugPrint('Enter pressed');
-                      },
+                      onPressed: model.goHome,
                     ),
                   ),
                 ],
