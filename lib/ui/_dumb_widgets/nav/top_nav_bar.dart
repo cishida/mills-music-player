@@ -1,6 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:flutter/src/foundation/key.dart';
-import 'package:flutter/src/widgets/framework.dart';
 import 'package:mills_music_player/_constants/_colors.dart';
 
 class TopNavBar extends StatelessWidget {
@@ -30,6 +28,11 @@ class TopNavBar extends StatelessWidget {
       child: Text(
         title,
         textAlign: TextAlign.center,
+        style: const TextStyle(
+          fontSize: 18.0,
+          fontWeight: FontWeight.bold,
+          color: ConstColors.offBlack,
+        ),
       ),
     );
   }

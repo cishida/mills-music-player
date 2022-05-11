@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:mills_music_player/_constants/_colors.dart';
+import 'package:mills_music_player/_constants/_values.dart';
 import 'package:mills_music_player/ui/views/bottom_nav/bottom_nav_view_model.dart';
 import 'package:mills_music_player/ui/views/home/home_view.dart';
 import 'package:mills_music_player/ui/views/landing/landing_view.dart';
@@ -9,22 +9,14 @@ class BottomNavView extends StatefulWidget {
   const BottomNavView({Key? key}) : super(key: key);
 
   @override
-  _BottomNavViewState createState() => _BottomNavViewState();
+  State<BottomNavView> createState() => _BottomNavViewState();
 }
 
 class _BottomNavViewState extends State<BottomNavView> {
   final Map<int, Widget> _viewCache = <int, Widget>{};
-  final List<String> tabNames = [
-    'Home',
-    'Albums',
-    'Playlists',
-    'Settings',
-  ];
 
   @override
   Widget build(BuildContext context) {
-    final Size size = MediaQuery.of(context).size;
-
     return ViewModelBuilder<BottomNavViewModel>.reactive(
       builder: (context, viewModel, child) => Scaffold(
         body: getViewForIndex(viewModel.currentTabIndex),
@@ -36,19 +28,19 @@ class _BottomNavViewState extends State<BottomNavView> {
           type: BottomNavigationBarType.fixed,
           items: [
             BottomNavigationBarItem(
-              label: tabNames[0],
+              label: ConstValues.appPages[0],
               icon: const Icon(Icons.home),
             ),
             BottomNavigationBarItem(
-              label: tabNames[1],
+              label: ConstValues.appPages[1],
               icon: const Icon(Icons.folder),
             ),
             BottomNavigationBarItem(
-              label: tabNames[2],
+              label: ConstValues.appPages[2],
               icon: const Icon(Icons.add_to_photos),
             ),
             BottomNavigationBarItem(
-              label: tabNames[3],
+              label: ConstValues.appPages[3],
               icon: const Icon(Icons.settings),
             ),
           ],

@@ -1,3 +1,5 @@
+import 'package:flutter/src/widgets/framework.dart';
+import 'package:flutter/src/foundation/key.dart';
 import 'package:stacked/stacked.dart';
 
 class BottomNavViewModel extends BaseViewModel {
