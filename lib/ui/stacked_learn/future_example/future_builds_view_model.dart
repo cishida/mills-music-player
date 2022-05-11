@@ -3,7 +3,7 @@ import 'package:stacked/stacked.dart';
 class FutureBuildsViewModel extends FutureViewModel<String> {
   Future<String> getDataFromMockServer() async {
     await Future.delayed(
-      Duration(seconds: 2),
+      const Duration(seconds: 2),
     );
     return 'Fetched mock data from server';
   }

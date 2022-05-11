@@ -3,7 +3,7 @@ import 'package:stacked/stacked_annotations.dart';
 
 @LazySingleton()
 class CounterService with ReactiveServiceMixin {
-  ReactiveValue<int> _counter = ReactiveValue<int>(0);
+  final ReactiveValue<int> _counter = ReactiveValue<int>(0);
   ReactiveValue<int> get counter => _counter;
 
   CounterService() {
