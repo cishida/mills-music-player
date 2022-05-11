@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:mills_music_player/_constants/_colors.dart';
 import 'package:mills_music_player/ui/views/bottom_nav/bottom_nav_view_model.dart';
 import 'package:mills_music_player/ui/views/home/home_view.dart';
 import 'package:mills_music_player/ui/views/landing/landing_view.dart';
@@ -20,22 +21,27 @@ class _BottomNavViewState extends State<BottomNavView> {
       builder: (context, viewModel, child) => Scaffold(
         body: getViewForIndex(viewModel.currentTabIndex),
         bottomNavigationBar: BottomNavigationBar(
-          elevation: 6,
+          elevation: 0,
           backgroundColor: Colors.white,
           currentIndex: viewModel.currentTabIndex,
           onTap: viewModel.setTabIndex,
+          type: BottomNavigationBarType.fixed,
           items: const [
             BottomNavigationBarItem(
               label: 'Home',
-              icon: Icon(Icons.ac_unit),
+              icon: Icon(Icons.home),
             ),
             BottomNavigationBarItem(
-              label: 'Albums & Playlists',
-              icon: Icon(Icons.access_alarm),
+              label: 'Albums',
+              icon: Icon(Icons.folder),
+            ),
+            BottomNavigationBarItem(
+              label: 'Playlists',
+              icon: Icon(Icons.add_to_photos),
             ),
             BottomNavigationBarItem(
               label: 'Settings',
-              icon: Icon(Icons.access_alarms),
+              icon: Icon(Icons.settings),
             ),
           ],
         ),
@@ -55,6 +61,9 @@ class _BottomNavViewState extends State<BottomNavView> {
           break;
         case 2:
           _viewCache[index] = const HomeView();
+          break;
+        case 3:
+          _viewCache[index] = const LandingView();
           break;
       }
     }
