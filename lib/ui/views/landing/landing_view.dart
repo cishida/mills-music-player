@@ -1,5 +1,8 @@
 import 'package:flutter/material.dart';
-import 'package:mills_music_player/_constants/_colors.dart';
+import 'package:mills_music_player/ui/_dumb_widgets/buttons/full_width_pill_button.dart';
+import 'package:mills_music_player/ui/views/landing/components/landing_logo.dart';
+import 'package:mills_music_player/ui/views/landing/components/landing_subheader.dart';
+import 'package:mills_music_player/ui/views/landing/components/landing_title.dart';
 import 'package:mills_music_player/ui/views/landing/landing_view_model.dart';
 import 'package:stacked/stacked.dart';
 
@@ -34,61 +37,33 @@ class LandingView extends StatelessWidget {
               ),
               Column(
                 children: [
-                  SizedBox(
-                    height: size.height * .2,
-                  ),
-                  Container(
-                    alignment: Alignment.center,
-                    child: Image.asset(
-                      'assets/images/logo/mills-owl-eyes.gif',
-                      height: 150,
-                      width: 150,
+                  Padding(
+                    padding: EdgeInsets.only(
+                      top: size.height * .2,
+                      bottom: 15.0,
                     ),
-                  ),
-                  const SizedBox(
-                    height: 30.0,
-                  ),
-                  const Text(
-                    'Mills Mechanical\nMusic Player',
-                    textAlign: TextAlign.center,
-                    style: TextStyle(
-                      fontSize: 32.0,
-                      color: ConstColors.offWhite,
-                      fontWeight: FontWeight.bold,
-                    ),
+                    child: const LandingLogo(),
                   ),
                   const Padding(
                     padding: EdgeInsets.symmetric(
-                      vertical: 30.0,
+                      vertical: 15.0,
+                    ),
+                    child: LandingTitle(),
+                  ),
+                  const Padding(
+                    padding: EdgeInsets.symmetric(
+                      vertical: 15.0,
                       horizontal: 30.0,
                     ),
-                    child: Text(
-                      'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer ut ipsum erat. Proin rhoncus lectus vel sagittis convallis.',
-                      textAlign: TextAlign.center,
-                      style: TextStyle(
-                        fontSize: 16.0,
-                        color: ConstColors.offWhite,
-                        fontWeight: FontWeight.bold,
-                      ),
-                    ),
+                    child: LandingSubheader(),
                   ),
                   Padding(
                     padding: const EdgeInsets.all(30.0),
-                    child: ElevatedButton(
-                      onPressed: () {},
-                      style: ElevatedButton.styleFrom(
-                        minimumSize: const Size.fromHeight(50),
-                        padding: const EdgeInsets.symmetric(
-                          horizontal: 40.0,
-                          vertical: 20.0,
-                        ),
-                        primary: const Color(0xFFd34049),
-                        shape: const StadiumBorder(),
-                      ),
-                      child: const Text(
-                        "ENTER",
-                        style: TextStyle(color: Colors.white, fontSize: 18),
-                      ),
+                    child: FullWidthPillButton(
+                      text: 'ENTER',
+                      onPressed: () {
+                        debugPrint('Enter pressed');
+                      },
                     ),
                   ),
                 ],
