@@ -31,6 +31,9 @@ dependencies:
   flutter:
     sdk: flutter
   flutter_hooks: ^0.18.3
+  freezed_annotation: ^2.0.3
+  json_annotation: ^4.5.0
+  logger: ^1.1.0
   stacked: ^2.3.6
   stacked_hooks: ^0.2.2
   stacked_services: ^0.8.22+1
@@ -40,6 +43,8 @@ dev_dependencies:
   flutter_lints: ^2.0.0
   flutter_test:
     sdk: flutter
+  freezed: ^2.0.3
+  json_serializable: ^6.2.0
   stacked_generator: ^0.6.2
 
 # For information on the generic Dart part of this file, see the

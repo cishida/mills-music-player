@@ -22,6 +22,7 @@ import 'package:stacked_services/stacked_services.dart';
       classType: CounterService,
     ),
   ],
+  logger: StackedLogger(),
 )
 class AppSetup {
   /* Serves no purpose besides annotation */
