@@ -6,20 +6,16 @@
 
 // ignore_for_file: public_member_api_docs
 
-import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:stacked/stacked.dart';
 import 'package:stacked/stacked_annotations.dart';
 
-import '../ui/stacked_learn/second/second_view.dart';
-import '../ui/stacked_learn/startup/startup_view.dart';
+import '../ui/views/landing/landing_view.dart';
 
 class Routes {
-  static const String startupView = '/';
-  static const String secondView = '/second-view';
+  static const String landingView = '/';
   static const all = <String>{
-    startupView,
-    secondView,
+    landingView,
   };
 }
 
@@ -27,21 +23,14 @@ class StackedRouter extends RouterBase {
   @override
   List<RouteDef> get routes => _routes;
   final _routes = <RouteDef>[
-    RouteDef(Routes.startupView, page: StartupView),
-    RouteDef(Routes.secondView, page: SecondView),
+    RouteDef(Routes.landingView, page: LandingView),
   ];
   @override
   Map<Type, StackedRouteFactory> get pagesMap => _pagesMap;
   final _pagesMap = <Type, StackedRouteFactory>{
-    StartupView: (data) {
+    LandingView: (data) {
       return MaterialPageRoute<dynamic>(
-        builder: (context) => const StartupView(),
-        settings: data,
-      );
-    },
-    SecondView: (data) {
-      return CupertinoPageRoute<dynamic>(
-        builder: (context) => const SecondView(),
+        builder: (context) => const LandingView(),
         settings: data,
       );
     },

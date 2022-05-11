@@ -1,18 +1,17 @@
 import 'package:mills_music_player/services/counter_service.dart';
-import 'package:mills_music_player/ui/stacked_learn/second/second_view.dart';
-import 'package:mills_music_player/ui/stacked_learn/startup/startup_view.dart';
+import 'package:mills_music_player/ui/views/landing/landing_view.dart';
 import 'package:stacked/stacked_annotations.dart';
 import 'package:stacked_services/stacked_services.dart';
 
 @StackedApp(
   routes: [
     MaterialRoute(
-      page: StartupView,
+      page: LandingView,
       initial: true,
     ),
-    CupertinoRoute(
-      page: SecondView,
-    )
+    // MaterialRoute(
+    //   page: HomeView,
+    // )
   ],
   dependencies: [
     LazySingleton(

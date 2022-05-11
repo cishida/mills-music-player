@@ -6,10 +6,11 @@
 
 // ignore_for_file: public_member_api_docs
 
-import 'package:mills_music_player/services/counter_service.dart';
 import 'package:stacked/stacked.dart';
 import 'package:stacked/stacked_annotations.dart';
 import 'package:stacked_services/stacked_services.dart';
+
+import '../services/counter_service.dart';
 
 final locator = StackedLocator.instance;
 
