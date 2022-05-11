@@ -6,9 +6,9 @@ import 'package:stacked_services/stacked_services.dart';
 class LandingViewModel extends BaseViewModel {
   final _navigationService = locator<NavigationService>();
 
-  void goHome() {
+  void enter() {
     _navigationService.navigateTo(
-      Routes.homeView,
+      Routes.bottomNavView,
     );
   }
 }

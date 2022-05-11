@@ -61,7 +61,7 @@ class LandingView extends StatelessWidget {
                     padding: const EdgeInsets.all(30.0),
                     child: FullWidthPillButton(
                       text: 'ENTER',
-                      onPressed: model.goHome,
+                      onPressed: model.enter,
                     ),
                   ),
                 ],
