@@ -14,13 +14,16 @@ class SongTileView extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Container(
-      padding: const EdgeInsets.only(right: 10),
+      padding: const EdgeInsets.only(right: 50),
       color: Colors.white,
       child: Column(
         children: [
           ListTile(
+            contentPadding: const EdgeInsets.only(
+              left: 16,
+            ),
             title: Text(
-              song.title ?? '',
+              song.title,
             ),
             subtitle: Text(
               song.artist ?? '',

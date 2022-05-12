@@ -21,7 +21,7 @@ Song _$SongFromJson(Map<String, dynamic> json) {
 /// @nodoc
 mixin _$Song {
   String get id => throw _privateConstructorUsedError;
-  String? get title => throw _privateConstructorUsedError;
+  String get title => throw _privateConstructorUsedError;
   String? get artist => throw _privateConstructorUsedError;
   Duration? get duration => throw _privateConstructorUsedError;
 
@@ -34,7 +34,7 @@ mixin _$Song {
 abstract class $SongCopyWith<$Res> {
   factory $SongCopyWith(Song value, $Res Function(Song) then) =
       _$SongCopyWithImpl<$Res>;
-  $Res call({String id, String? title, String? artist, Duration? duration});
+  $Res call({String id, String title, String? artist, Duration? duration});
 }
 
 /// @nodoc
@@ -60,7 +60,7 @@ class _$SongCopyWithImpl<$Res> implements $SongCopyWith<$Res> {
       title: title == freezed
           ? _value.title
           : title // ignore: cast_nullable_to_non_nullable
-              as String?,
+              as String,
       artist: artist == freezed
           ? _value.artist
           : artist // ignore: cast_nullable_to_non_nullable
@@ -78,7 +78,7 @@ abstract class _$$_SongCopyWith<$Res> implements $SongCopyWith<$Res> {
   factory _$$_SongCopyWith(_$_Song value, $Res Function(_$_Song) then) =
       __$$_SongCopyWithImpl<$Res>;
   @override
-  $Res call({String id, String? title, String? artist, Duration? duration});
+  $Res call({String id, String title, String? artist, Duration? duration});
 }
 
 /// @nodoc
@@ -105,7 +105,7 @@ class __$$_SongCopyWithImpl<$Res> extends _$SongCopyWithImpl<$Res>
       title: title == freezed
           ? _value.title
           : title // ignore: cast_nullable_to_non_nullable
-              as String?,
+              as String,
       artist: artist == freezed
           ? _value.artist
           : artist // ignore: cast_nullable_to_non_nullable
@@ -121,14 +121,14 @@ class __$$_SongCopyWithImpl<$Res> extends _$SongCopyWithImpl<$Res>
 /// @nodoc
 @JsonSerializable()
 class _$_Song implements _Song {
-  _$_Song({required this.id, this.title, this.artist, this.duration});
+  _$_Song({required this.id, required this.title, this.artist, this.duration});
 
   factory _$_Song.fromJson(Map<String, dynamic> json) => _$$_SongFromJson(json);
 
   @override
   final String id;
   @override
-  final String? title;
+  final String title;
   @override
   final String? artist;
   @override
@@ -173,7 +173,7 @@ class _$_Song implements _Song {
 abstract class _Song implements Song {
   factory _Song(
       {required final String id,
-      final String? title,
+      required final String title,
       final String? artist,
       final Duration? duration}) = _$_Song;
 
@@ -182,7 +182,7 @@ abstract class _Song implements Song {
   @override
   String get id => throw _privateConstructorUsedError;
   @override
-  String? get title => throw _privateConstructorUsedError;
+  String get title => throw _privateConstructorUsedError;
   @override
   String? get artist => throw _privateConstructorUsedError;
   @override
