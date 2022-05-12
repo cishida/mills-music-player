@@ -14,6 +14,7 @@ class SongTileView extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Container(
+      padding: const EdgeInsets.only(right: 10),
       color: Colors.white,
       child: Column(
         children: [
