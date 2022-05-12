@@ -8,7 +8,7 @@ class Song with _$Song {
   factory Song({
     required String id,
     required String title,
-    String? artist,
+    required List<String> artists,
     Duration? duration,
   }) = _Song;
 

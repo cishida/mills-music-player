@@ -31,7 +31,7 @@ class SongTileView extends StatelessWidget {
                   song.title,
                 ),
                 subtitle: Text(
-                  song.artist ?? '',
+                  song.artists.join(', '),
                 ),
                 trailing: Text(
                   DurationUtil.format(song.duration),

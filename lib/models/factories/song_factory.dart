@@ -7,7 +7,9 @@ class SongFactory extends ModelFactory<Song> {
     return Song(
       id: createFakeUuid(),
       title: faker.lorem.words(4).join(' '),
-      artist: '${faker.person.firstName()} ${faker.person.lastName()}'.trim(),
+      artists: [
+        '${faker.person.firstName()} ${faker.person.lastName()}'.trim()
+      ],
       duration: Duration(seconds: faker.randomGenerator.integer(300, min: 100)),
     );
   }
