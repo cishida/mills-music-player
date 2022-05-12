@@ -11,6 +11,7 @@ import 'package:stacked/stacked_annotations.dart';
 import 'package:stacked_services/stacked_services.dart';
 
 import '../services/counter_service.dart';
+import '../services/song/song_service.dart';
 
 final locator = StackedLocator.instance;
 
@@ -22,4 +23,5 @@ void setupLocator({String? environment, EnvironmentFilter? environmentFilter}) {
 // Register dependencies
   locator.registerLazySingleton(() => NavigationService());
   locator.registerLazySingleton(() => CounterService());
+  locator.registerLazySingleton(() => SongService());
 }

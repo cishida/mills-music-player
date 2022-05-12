@@ -31,7 +31,7 @@ class SongListView extends StatelessWidget {
     return ViewModelBuilder<SongListViewModel>.reactive(
       viewModelBuilder: () => SongListViewModel(),
       builder: (context, model, child) {
-        model.createFakerSongs();
+        model.setSongData();
 
         return AzListView(
           data: model.songData,
