@@ -14,19 +14,18 @@ class AlbumsView extends StatelessWidget {
         model.createFakerAlbums();
 
         return ListView.builder(
+          shrinkWrap: true,
           itemCount: model.albums.length,
           itemBuilder: (context, index) {
             final album = model.albums[index];
 
             return Container(
-              padding: const EdgeInsets.only(right: 50),
               color: Colors.white,
               child: Column(
                 children: [
                   ListTile(
-                    contentPadding: const EdgeInsets.only(
-                      left: 16,
-                    ),
+                    selectedColor: ConstColors.offWhite,
+                    onTap: model.onAlbumTap,
                     title: Text(
                       album.title,
                     ),
