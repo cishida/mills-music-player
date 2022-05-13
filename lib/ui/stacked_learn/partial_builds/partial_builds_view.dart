@@ -9,7 +9,6 @@ class PartialBuildsView extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    debugPrint('Partial Builds rebuilt');
     return ViewModelBuilder<PartialBuildsViewModel>.nonReactive(
       viewModelBuilder: () => PartialBuildsViewModel(),
       builder: (context, model, child) => Scaffold(
@@ -39,7 +38,6 @@ class _StringForm extends HookViewModelWidget<PartialBuildsViewModel> {
     BuildContext context,
     PartialBuildsViewModel model,
   ) {
-    debugPrint('_StringForm rebuilt');
     var text = useTextEditingController();
 
     return TextField(
@@ -61,7 +59,6 @@ class _TitleAndValue extends ViewModelWidget<PartialBuildsViewModel> {
     BuildContext context,
     PartialBuildsViewModel model,
   ) {
-    debugPrint('_TitleAndValue rebuilt');
     return Column(
       children: [
         Text(

@@ -18,6 +18,5 @@ class SongService with ReactiveServiceMixin {
 
   void _createFakerSongs() {
     _reactiveSongs.value = _songFactory.generateFakeList(length: 500);
-    print(_reactiveSongs.value);
   }
 }
