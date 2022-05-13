@@ -12,13 +12,13 @@ class NewPlaylistView extends StatelessWidget {
   Widget build(BuildContext context) {
     return ViewModelBuilder<NewPlaylistViewModel>.reactive(
       viewModelBuilder: () => NewPlaylistViewModel(),
-      builder: (context, model, child) => Scaffold(
-        body: Column(
+      builder: (context, model, child) {
+        return Column(
           children: [
             Text('New playlist screen'),
           ],
-        ),
-      ),
+        );
+      },
     );
   }
 }
