@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:mills_music_player/_constants/_colors.dart';
+import 'package:mills_music_player/models/album/album.dart';
 import 'package:mills_music_player/ui/views/albums/albums_view_model.dart';
 import 'package:stacked/stacked.dart';
 
@@ -17,7 +18,7 @@ class AlbumsView extends StatelessWidget {
           shrinkWrap: true,
           itemCount: model.albums.length,
           itemBuilder: (context, index) {
-            final album = model.albums[index];
+            final Album album = model.albums[index];
 
             return Container(
               color: Colors.white,
@@ -25,7 +26,10 @@ class AlbumsView extends StatelessWidget {
                 children: [
                   ListTile(
                     selectedColor: ConstColors.offWhite,
-                    onTap: () => model.onAlbumTap(context),
+                    onTap: () => model.onAlbumTap(
+                      context,
+                      album,
+                    ),
                     title: Text(
                       album.title,
                     ),

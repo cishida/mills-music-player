@@ -17,11 +17,16 @@ class AlbumsViewModel extends BaseViewModel {
     );
   }
 
-  void onAlbumTap(BuildContext context) {
+  void onAlbumTap(
+    BuildContext context,
+    Album album,
+  ) {
     Navigator.of(context).push(
       MaterialPageRoute<String>(
         builder: (BuildContext context) {
-          return AlbumView();
+          return AlbumView(
+            album: album,
+          );
         },
         // fullscreenDialog: true,
       ),
