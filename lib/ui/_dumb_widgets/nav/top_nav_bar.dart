@@ -54,8 +54,11 @@ class TopNavBar extends StatelessWidget {
             ),
           ),
           if (canGoBack)
-            SizedBox(
+            Container(
               width: 67,
+              padding: const EdgeInsets.only(
+                right: 10.0,
+              ),
               child: trailing ?? Container(),
             ),
         ],

@@ -1,3 +1,15 @@
+import 'package:mills_music_player/app/app.locator.dart';
+import 'package:mills_music_player/models/song/song.dart';
+import 'package:mills_music_player/services/song/song_service.dart';
 import 'package:stacked/stacked.dart';
 
-class HomeViewModel extends BaseViewModel {}
+class HomeViewModel extends ReactiveViewModel {
+  final _songService = locator<SongService>();
+  List<Song> get songs => _songService.reactiveSongs.value;
+
+  @override
+  // TODO: implement reactiveServices
+  List<ReactiveServiceMixin> get reactiveServices => [
+        _songService,
+      ];
+}
