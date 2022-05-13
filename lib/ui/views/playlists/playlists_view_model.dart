@@ -29,7 +29,7 @@ class PlaylistsViewModel extends BaseViewModel {
     _panelController.animatePanelToPosition(
       1.0,
       duration: const Duration(
-        milliseconds: 400,
+        milliseconds: 250,
       ),
     );
   }
