@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:mills_music_player/models/playlist/playlist.dart';
 import 'package:mills_music_player/ui/_dumb_widgets/nav/top_nav_bar.dart';
+import 'package:mills_music_player/ui/_smart_widgets/song_lists/song_list/song_list_view.dart';
 import 'package:mills_music_player/ui/views/playlists/playlist/playlist_view_model.dart';
 import 'package:stacked/stacked.dart';
 
@@ -27,8 +28,10 @@ class PlaylistView extends StatelessWidget {
                 textAlign: TextAlign.right,
               ),
             ),
-            Text(
-              'Single playlist content',
+            Expanded(
+              child: SongListView(
+                songs: playlist.songs,
+              ),
             ),
           ],
         ),
