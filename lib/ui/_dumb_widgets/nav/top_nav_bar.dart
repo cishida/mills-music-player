@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:mills_music_player/_constants/_colors.dart';
 import 'package:mills_music_player/ui/_dumb_widgets/nav/go_back_chevron.dart';
+import 'package:mills_music_player/ui/_dumb_widgets/nav/top_nav_text_scroll.dart';
 
 class TopNavBar extends StatelessWidget {
   const TopNavBar({
@@ -8,11 +9,13 @@ class TopNavBar extends StatelessWidget {
     this.title = '',
     this.subtitle = '',
     this.canGoBack = false,
+    this.trailing,
   }) : super(key: key);
 
   final String title;
   final String subtitle;
   final bool canGoBack;
+  final Widget? trailing;
 
   @override
   Widget build(BuildContext context) {
@@ -32,34 +35,28 @@ class TopNavBar extends StatelessWidget {
       child: Row(
         children: [
           if (canGoBack) const GoBackChevron(),
-          const Spacer(),
-          Column(
-            children: [
-              Text(
-                title,
-                textAlign: TextAlign.center,
-                style: const TextStyle(
-                  fontSize: 18.0,
-                  fontWeight: FontWeight.bold,
-                  color: ConstColors.offBlack,
-                ),
+          Expanded(
+            child: Padding(
+              padding: const EdgeInsets.symmetric(horizontal: 10.0),
+              child: Column(
+                children: [
+                  TopNavTextScroll(text: title),
+                  if (subtitle != '')
+                    TopNavTextScroll(
+                      text: subtitle,
+                      style: const TextStyle(
+                        fontSize: 16.0,
+                        color: ConstColors.navGray,
+                      ),
+                    ),
+                ],
               ),
-              if (subtitle != '')
-                Text(
-                  subtitle,
-                  textAlign: TextAlign.center,
-                  style: const TextStyle(
-                    fontSize: 16.0,
-                    color: ConstColors.navGray,
-                  ),
-                ),
-            ],
+            ),
           ),
-          const Spacer(),
           if (canGoBack)
             SizedBox(
               width: 67,
-              child: Container(),
+              child: trailing ?? Container(),
             ),
         ],
       ),
