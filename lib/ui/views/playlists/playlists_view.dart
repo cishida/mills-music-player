@@ -29,7 +29,9 @@ class PlaylistsView extends StatelessWidget {
             topRight: Radius.circular(24.0),
           ),
           controller: model.panelController,
-          panel: const NewPlaylistView(),
+          panel: NewPlaylistView(
+            close: () => model.panelController.close(),
+          ),
           body: SingleChildScrollView(
             child: Container(
               margin: const EdgeInsets.only(top: 15.0),

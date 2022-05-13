@@ -1,9 +1,3 @@
-import 'package:azlistview/azlistview.dart';
-import 'package:mills_music_player/app/app.locator.dart';
-import 'package:mills_music_player/models/az_item/az_item.dart';
-import 'package:mills_music_player/models/factories/song_factory.dart';
-import 'package:mills_music_player/models/song/song.dart';
-import 'package:mills_music_player/services/song/song_service.dart';
 import 'package:stacked/stacked.dart';
 
 class SongListViewModel extends BaseViewModel {
