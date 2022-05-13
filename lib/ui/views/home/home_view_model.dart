@@ -8,7 +8,6 @@ class HomeViewModel extends ReactiveViewModel {
   List<Song> get songs => _songService.reactiveSongs.value;
 
   @override
-  // TODO: implement reactiveServices
   List<ReactiveServiceMixin> get reactiveServices => [
         _songService,
       ];

@@ -1,7 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:mills_music_player/models/factories/playlist_factory.dart';
 import 'package:mills_music_player/models/playlist/playlist.dart';
-import 'package:mills_music_player/ui/views/playlists/new_playlist/new_playlist_view.dart';
 import 'package:mills_music_player/ui/views/playlists/playlist/playlist_view.dart';
 import 'package:sliding_up_panel/sliding_up_panel.dart';
 import 'package:stacked/stacked.dart';
