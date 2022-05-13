@@ -11,11 +11,15 @@ class PlaylistsViewModel extends BaseViewModel {
   List<Playlist> get playlists => _playlists;
 
   void createFakerPlaylists() {
-    _playlists = _playlistFactory.generateFakeList(length: 2);
+    _playlists = _playlistFactory.generateFakeList(length: 0);
     _playlists.sort(
       (a, b) => a.title.compareTo(b.title),
     );
   }
+
+  void onNewPlaylist(
+    BuildContext context,
+  ) {}
 
   void onPlaylistTap(
     BuildContext context,

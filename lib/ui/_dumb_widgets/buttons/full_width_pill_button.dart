@@ -6,11 +6,13 @@ class FullWidthPillButton extends StatelessWidget {
     required this.text,
     required this.onPressed,
     this.color = const Color(0xFFd34049),
+    this.textColor = Colors.white,
   }) : super(key: key);
 
   final String text;
   final Function onPressed;
   final Color color;
+  final Color textColor;
 
   @override
   Widget build(BuildContext context) {
@@ -27,8 +29,8 @@ class FullWidthPillButton extends StatelessWidget {
       ),
       child: Text(
         text,
-        style: const TextStyle(
-          color: Colors.white,
+        style: TextStyle(
+          color: textColor,
           fontSize: 18,
         ),
       ),
