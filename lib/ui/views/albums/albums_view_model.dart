@@ -1,12 +1,10 @@
-import 'package:mills_music_player/app/app.locator.dart';
-import 'package:mills_music_player/app/app.router.dart';
+import 'package:flutter/material.dart';
 import 'package:mills_music_player/models/album/album.dart';
 import 'package:mills_music_player/models/factories/album_factory.dart';
+import 'package:mills_music_player/ui/views/albums/album/album_view.dart';
 import 'package:stacked/stacked.dart';
-import 'package:stacked_services/stacked_services.dart';
 
 class AlbumsViewModel extends BaseViewModel {
-  final _navigationService = locator<NavigationService>();
   final _albumFactory = AlbumFactory();
 
   List<Album> _albums = [];
@@ -19,9 +17,14 @@ class AlbumsViewModel extends BaseViewModel {
     );
   }
 
-  void onAlbumTap() {
-    _navigationService.navigateTo(
-      Routes.landingView,
+  void onAlbumTap(BuildContext context) {
+    Navigator.of(context).push(
+      MaterialPageRoute<String>(
+        builder: (BuildContext context) {
+          return AlbumView();
+        },
+        // fullscreenDialog: true,
+      ),
     );
   }
 }

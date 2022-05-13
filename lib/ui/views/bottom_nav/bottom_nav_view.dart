@@ -1,9 +1,11 @@
 import 'package:flutter/material.dart';
 import 'package:mills_music_player/_constants/_colors.dart';
 import 'package:mills_music_player/_constants/_values.dart';
+import 'package:mills_music_player/app/app.router.dart';
 import 'package:mills_music_player/ui/_dumb_widgets/nav/top_nav_bar.dart';
 import 'package:mills_music_player/ui/views/bottom_nav/bottom_nav_view_model.dart';
 import 'package:stacked/stacked.dart';
+import 'package:stacked_services/stacked_services.dart';
 
 class BottomNavView extends StatefulWidget {
   const BottomNavView({Key? key}) : super(key: key);

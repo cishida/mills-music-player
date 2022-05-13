@@ -25,7 +25,7 @@ class AlbumsView extends StatelessWidget {
                 children: [
                   ListTile(
                     selectedColor: ConstColors.offWhite,
-                    onTap: model.onAlbumTap,
+                    onTap: () => model.onAlbumTap(context),
                     title: Text(
                       album.title,
                     ),

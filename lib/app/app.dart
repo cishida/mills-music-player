@@ -21,26 +21,30 @@ import 'package:stacked_services/stacked_services.dart';
     // ),
     MaterialRoute(
       page: BottomNavView,
-      children: [
-        MaterialRoute(
-          page: HomeView,
-          initial: true,
-        ),
-        MaterialRoute(
-          page: AlbumsView,
-          children: [
-            MaterialRoute(
-              page: AlbumView,
-            )
-          ],
-        ),
-        MaterialRoute(
-          page: PlaylistsView,
-        ),
-        MaterialRoute(
-          page: SettingsView,
-        ),
-      ],
+      // children: [
+      //   MaterialRoute(
+      //     page: HomeView,
+      //     initial: true,
+      //   ),
+      //   MaterialRoute(
+      //     page: AlbumsRouter,
+      //     children: [
+      //       MaterialRoute(
+      //         page: AlbumsView,
+      //         initial: true,
+      //       ),
+      //       MaterialRoute(
+      //         page: AlbumView,
+      //       )
+      //     ],
+      //   ),
+      //   MaterialRoute(
+      //     page: PlaylistsView,
+      //   ),
+      //   MaterialRoute(
+      //     page: SettingsView,
+      //   ),
+      // ],
     ),
     // MaterialRoute(
     //   page: HomeView,

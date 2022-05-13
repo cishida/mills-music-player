@@ -12,7 +12,20 @@ class AlbumView extends StatelessWidget {
     return ViewModelBuilder<AlbumViewModel>.reactive(
       viewModelBuilder: () => AlbumViewModel(),
       builder: (context, model, child) {
-        return Text('Single album view!');
+        return Scaffold(
+          body: Column(
+            children: [
+              GestureDetector(
+                onTap: () => Navigator.of(context).pop(),
+                child: Icon(
+                  Icons.chevron_left,
+                  size: 20.0,
+                ),
+              ),
+              Text('Single album view!'),
+            ],
+          ),
+        );
       },
     );
   }
