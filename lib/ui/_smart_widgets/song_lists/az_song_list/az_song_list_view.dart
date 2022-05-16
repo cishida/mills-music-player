@@ -42,6 +42,7 @@ class AZSongListView extends StatelessWidget {
           itemCount: model.sortedSongs.length,
           itemBuilder: (BuildContext context, int index) => SongTileView(
             song: model.sortedSongs[index],
+            isAlphabetical: true,
           ),
           physics: const BouncingScrollPhysics(),
           indexBarData: SuspensionUtil.getTagIndexList(model.songData),

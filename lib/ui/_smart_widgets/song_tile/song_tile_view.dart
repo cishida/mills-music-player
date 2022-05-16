@@ -9,9 +9,11 @@ class SongTileView extends StatelessWidget {
   const SongTileView({
     Key? key,
     required this.song,
+    this.isAlphabetical = false,
   }) : super(key: key);
 
   final Song song;
+  final bool isAlphabetical;
 
   @override
   Widget build(BuildContext context) {
@@ -19,13 +21,14 @@ class SongTileView extends StatelessWidget {
       viewModelBuilder: () => SongTileViewModel(),
       builder: (context, model, child) {
         return Container(
-          padding: const EdgeInsets.only(right: 50),
+          padding: EdgeInsets.only(right: isAlphabetical ? 50 : 0),
           color: Colors.white,
           child: Column(
             children: [
               ListTile(
-                contentPadding: const EdgeInsets.only(
+                contentPadding: EdgeInsets.only(
                   left: 16,
+                  right: isAlphabetical ? 0 : 16.0,
                 ),
                 title: Text(
                   song.title,

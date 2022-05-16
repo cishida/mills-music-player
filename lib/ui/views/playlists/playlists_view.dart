@@ -31,40 +31,37 @@ class PlaylistsView extends StatelessWidget {
             close: () => model.panelController.close(),
           ),
           body: SingleChildScrollView(
-            child: Container(
-              margin: const EdgeInsets.only(top: 15.0),
-              child: Column(
-                children: [
-                  ListView.builder(
-                    shrinkWrap: true,
-                    physics: const NeverScrollableScrollPhysics(),
-                    itemCount: model.playlists.length,
-                    itemBuilder: (context, index) {
-                      final Playlist playlist = model.playlists[index];
+            child: Column(
+              children: [
+                Padding(
+                  padding: const EdgeInsets.symmetric(
+                    horizontal: 30.0,
+                    vertical: 15.0,
+                  ),
+                  child: FullWidthPillButton(
+                    text: 'Create a new playlist',
+                    color: Colors.white,
+                    textColor: Colors.black,
+                    onPressed: () => model.onNewPlaylist(context),
+                  ),
+                ),
+                ListView.builder(
+                  shrinkWrap: true,
+                  physics: const NeverScrollableScrollPhysics(),
+                  itemCount: model.playlists.length,
+                  itemBuilder: (context, index) {
+                    final Playlist playlist = model.playlists[index];
 
-                      return PlaylistTile(
-                        playlist: playlist,
-                        onTap: () => model.onPlaylistTap(
-                          context,
-                          playlist,
-                        ),
-                      );
-                    },
-                  ),
-                  Padding(
-                    padding: const EdgeInsets.symmetric(
-                      horizontal: 30.0,
-                      vertical: 15.0,
-                    ),
-                    child: FullWidthPillButton(
-                      text: 'Create a new playlist',
-                      color: Colors.white,
-                      textColor: Colors.black,
-                      onPressed: () => model.onNewPlaylist(context),
-                    ),
-                  ),
-                ],
-              ),
+                    return PlaylistTile(
+                      playlist: playlist,
+                      onTap: () => model.onPlaylistTap(
+                        context,
+                        playlist,
+                      ),
+                    );
+                  },
+                ),
+              ],
             ),
           ),
         );
