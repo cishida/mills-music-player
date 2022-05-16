@@ -32,6 +32,9 @@ class PlaylistService with ReactiveServiceMixin {
     );
 
     _reactivePlaylists.value.add(newPlaylist);
+    _reactivePlaylists.value.sort(
+      (a, b) => b.createdAt.compareTo(a.createdAt),
+    );
     notifyListeners();
   }
 }
