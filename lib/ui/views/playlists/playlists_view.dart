@@ -15,8 +15,6 @@ class PlaylistsView extends StatelessWidget {
     return ViewModelBuilder<PlaylistsViewModel>.reactive(
       viewModelBuilder: () => PlaylistsViewModel(),
       builder: (context, model, child) {
-        model.createFakerPlaylists();
-
         return SlidingUpPanel(
           minHeight: 0.0,
           maxHeight: MediaQuery.of(context).size.height * 0.85,

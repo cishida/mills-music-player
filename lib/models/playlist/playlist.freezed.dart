@@ -22,6 +22,7 @@ Playlist _$PlaylistFromJson(Map<String, dynamic> json) {
 mixin _$Playlist {
   String get id => throw _privateConstructorUsedError;
   String get title => throw _privateConstructorUsedError;
+  DateTime get createdAt => throw _privateConstructorUsedError;
   List<Song> get songs => throw _privateConstructorUsedError;
 
   Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
@@ -34,7 +35,7 @@ mixin _$Playlist {
 abstract class $PlaylistCopyWith<$Res> {
   factory $PlaylistCopyWith(Playlist value, $Res Function(Playlist) then) =
       _$PlaylistCopyWithImpl<$Res>;
-  $Res call({String id, String title, List<Song> songs});
+  $Res call({String id, String title, DateTime createdAt, List<Song> songs});
 }
 
 /// @nodoc
@@ -49,6 +50,7 @@ class _$PlaylistCopyWithImpl<$Res> implements $PlaylistCopyWith<$Res> {
   $Res call({
     Object? id = freezed,
     Object? title = freezed,
+    Object? createdAt = freezed,
     Object? songs = freezed,
   }) {
     return _then(_value.copyWith(
@@ -60,6 +62,10 @@ class _$PlaylistCopyWithImpl<$Res> implements $PlaylistCopyWith<$Res> {
           ? _value.title
           : title // ignore: cast_nullable_to_non_nullable
               as String,
+      createdAt: createdAt == freezed
+          ? _value.createdAt
+          : createdAt // ignore: cast_nullable_to_non_nullable
+              as DateTime,
       songs: songs == freezed
           ? _value.songs
           : songs // ignore: cast_nullable_to_non_nullable
@@ -74,7 +80,7 @@ abstract class _$$_PlaylistCopyWith<$Res> implements $PlaylistCopyWith<$Res> {
           _$_Playlist value, $Res Function(_$_Playlist) then) =
       __$$_PlaylistCopyWithImpl<$Res>;
   @override
-  $Res call({String id, String title, List<Song> songs});
+  $Res call({String id, String title, DateTime createdAt, List<Song> songs});
 }
 
 /// @nodoc
@@ -91,6 +97,7 @@ class __$$_PlaylistCopyWithImpl<$Res> extends _$PlaylistCopyWithImpl<$Res>
   $Res call({
     Object? id = freezed,
     Object? title = freezed,
+    Object? createdAt = freezed,
     Object? songs = freezed,
   }) {
     return _then(_$_Playlist(
@@ -102,6 +109,10 @@ class __$$_PlaylistCopyWithImpl<$Res> extends _$PlaylistCopyWithImpl<$Res>
           ? _value.title
           : title // ignore: cast_nullable_to_non_nullable
               as String,
+      createdAt: createdAt == freezed
+          ? _value.createdAt
+          : createdAt // ignore: cast_nullable_to_non_nullable
+              as DateTime,
       songs: songs == freezed
           ? _value._songs
           : songs // ignore: cast_nullable_to_non_nullable
@@ -114,7 +125,10 @@ class __$$_PlaylistCopyWithImpl<$Res> extends _$PlaylistCopyWithImpl<$Res>
 @JsonSerializable()
 class _$_Playlist implements _Playlist {
   _$_Playlist(
-      {required this.id, required this.title, required final List<Song> songs})
+      {required this.id,
+      required this.title,
+      required this.createdAt,
+      required final List<Song> songs})
       : _songs = songs;
 
   factory _$_Playlist.fromJson(Map<String, dynamic> json) =>
@@ -124,6 +138,8 @@ class _$_Playlist implements _Playlist {
   final String id;
   @override
   final String title;
+  @override
+  final DateTime createdAt;
   final List<Song> _songs;
   @override
   List<Song> get songs {
@@ -133,7 +149,7 @@ class _$_Playlist implements _Playlist {
 
   @override
   String toString() {
-    return 'Playlist(id: $id, title: $title, songs: $songs)';
+    return 'Playlist(id: $id, title: $title, createdAt: $createdAt, songs: $songs)';
   }
 
   @override
@@ -143,6 +159,7 @@ class _$_Playlist implements _Playlist {
             other is _$_Playlist &&
             const DeepCollectionEquality().equals(other.id, id) &&
             const DeepCollectionEquality().equals(other.title, title) &&
+            const DeepCollectionEquality().equals(other.createdAt, createdAt) &&
             const DeepCollectionEquality().equals(other._songs, _songs));
   }
 
@@ -152,6 +169,7 @@ class _$_Playlist implements _Playlist {
       runtimeType,
       const DeepCollectionEquality().hash(id),
       const DeepCollectionEquality().hash(title),
+      const DeepCollectionEquality().hash(createdAt),
       const DeepCollectionEquality().hash(_songs));
 
   @JsonKey(ignore: true)
@@ -169,6 +187,7 @@ abstract class _Playlist implements Playlist {
   factory _Playlist(
       {required final String id,
       required final String title,
+      required final DateTime createdAt,
       required final List<Song> songs}) = _$_Playlist;
 
   factory _Playlist.fromJson(Map<String, dynamic> json) = _$_Playlist.fromJson;
@@ -177,6 +196,8 @@ abstract class _Playlist implements Playlist {
   String get id => throw _privateConstructorUsedError;
   @override
   String get title => throw _privateConstructorUsedError;
+  @override
+  DateTime get createdAt => throw _privateConstructorUsedError;
   @override
   List<Song> get songs => throw _privateConstructorUsedError;
   @override

@@ -9,6 +9,7 @@ class Playlist with _$Playlist {
   factory Playlist({
     required String id,
     required String title,
+    required DateTime createdAt,
     required List<Song> songs,
   }) = _Playlist;
 
