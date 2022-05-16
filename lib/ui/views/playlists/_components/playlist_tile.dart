@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:mills_music_player/_constants/_colors.dart';
+import 'package:mills_music_player/_utils/plurals_util.dart';
 import 'package:mills_music_player/models/playlist/playlist.dart';
 
 class PlaylistTile extends StatelessWidget {
@@ -25,7 +26,7 @@ class PlaylistTile extends StatelessWidget {
               playlist.title,
             ),
             trailing: Text(
-              '${playlist.songs.length.toString()} songs',
+              PluralsUtil.songs(playlist.songs.length),
             ),
           ),
           const Divider(

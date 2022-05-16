@@ -67,9 +67,8 @@ class NewPlaylistView extends StatelessWidget {
                     color: Colors.white,
                     textColor: Colors.black,
                     onPressed: () {
-                      model.controller.clear();
+                      model.createPlaylist();
                       close();
-                      debugPrint('Create pressed');
                     },
                   )
                 ],

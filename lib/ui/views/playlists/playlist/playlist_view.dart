@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:mills_music_player/_utils/plurals_util.dart';
 import 'package:mills_music_player/models/playlist/playlist.dart';
 import 'package:mills_music_player/ui/_dumb_widgets/nav/top_nav_bar.dart';
 import 'package:mills_music_player/ui/_smart_widgets/song_lists/song_list/song_list_view.dart';
@@ -24,7 +25,7 @@ class PlaylistView extends StatelessWidget {
               title: playlist.title,
               canGoBack: true,
               trailing: Text(
-                '${playlist.songs.length.toString()} songs',
+                PluralsUtil.songs(playlist.songs.length),
                 textAlign: TextAlign.right,
               ),
             ),

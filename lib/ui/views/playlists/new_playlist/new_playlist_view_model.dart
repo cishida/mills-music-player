@@ -16,5 +16,6 @@ class NewPlaylistViewModel extends BaseViewModel {
     }
 
     _playlistService.createPlaylist(title: _controller.text);
+    _controller.clear();
   }
 }

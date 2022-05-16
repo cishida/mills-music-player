@@ -32,5 +32,6 @@ class PlaylistService with ReactiveServiceMixin {
     );
 
     _reactivePlaylists.value.add(newPlaylist);
+    notifyListeners();
   }
 }
