@@ -1,16 +1,19 @@
 import 'package:flutter/material.dart';
 import 'package:mills_music_player/models/page_info.dart';
-import 'package:mills_music_player/ui/views/albums/albums_view.dart';
-import 'package:mills_music_player/ui/views/home/home_view.dart';
+import 'package:mills_music_player/ui/views/albums/albums_view/albums_view.dart';
+import 'package:mills_music_player/ui/views/songs/songs_view.dart';
 import 'package:mills_music_player/ui/views/playlists/playlists_view.dart';
 import 'package:mills_music_player/ui/views/settings/settings_view.dart';
 
 class ConstValues {
+  static int bottomNavRouterId = 1;
+  static int albumsRouterId = 2;
+
   static List<PageInfo> pageInfos = [
     PageInfo(
-      title: 'Home',
-      icon: const Icon(Icons.home),
-      view: const HomeView(),
+      title: 'Songs',
+      icon: const Icon(Icons.music_note),
+      view: const SongsView(),
     ),
     PageInfo(
       title: 'Albums',

@@ -24,7 +24,7 @@ class AlbumView extends StatelessWidget {
               TopNavBar(
                 title: album.title,
                 subtitle: album.artists.join(','),
-                canGoBack: true,
+                goBack: model.goBack,
                 trailing: Text(
                   '${album.songs.length.toString()} songs',
                   textAlign: TextAlign.right,

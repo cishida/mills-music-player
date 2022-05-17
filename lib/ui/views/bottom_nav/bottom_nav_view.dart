@@ -1,9 +1,9 @@
 import 'package:flutter/material.dart';
-import 'package:mills_music_player/_constants/_colors.dart';
 import 'package:mills_music_player/_constants/_values.dart';
-import 'package:mills_music_player/ui/_dumb_widgets/nav/top_nav_bar.dart';
+import 'package:mills_music_player/app/app.router.dart';
 import 'package:mills_music_player/ui/views/bottom_nav/bottom_nav_view_model.dart';
 import 'package:stacked/stacked.dart';
+import 'package:stacked_services/stacked_services.dart';
 
 class BottomNavView extends StatefulWidget {
   const BottomNavView({Key? key}) : super(key: key);
@@ -34,19 +34,25 @@ class _BottomNavViewState extends State<BottomNavView> {
   Widget build(BuildContext context) {
     return ViewModelBuilder<BottomNavViewModel>.reactive(
       builder: (context, viewModel, child) => Scaffold(
-        body: Column(
-          children: [
-            TopNavBar(
-              title: ConstValues.pageInfos[viewModel.currentTabIndex].title,
-            ),
-            Expanded(
-              child: Container(
-                color: ConstColors.offWhite,
-                child: getViewForIndex(viewModel.currentTabIndex),
-              ),
-            ),
-          ],
+        body: ExtendedNavigator(
+          router: BottomNavViewRouter(),
+          navigatorKey: StackedService.nestedNavigationKey(
+            ConstValues.bottomNavRouterId,
+          ),
         ),
+        // body: Column(
+        //   children: [
+        //     TopNavBar(
+        //       title: ConstValues.pageInfos[viewModel.currentTabIndex].title,
+        //     ),
+        //     Expanded(
+        //       child: Container(
+        //         color: ConstColors.offWhite,
+        //         child: getViewForIndex(viewModel.currentTabIndex),
+        //       ),
+        //     ),
+        //   ],
+        // ),
         bottomNavigationBar: BottomNavigationBar(
           elevation: 2,
           backgroundColor: Colors.white,

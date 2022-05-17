@@ -8,13 +8,13 @@ class TopNavBar extends StatelessWidget {
     Key? key,
     this.title = '',
     this.subtitle = '',
-    this.canGoBack = false,
+    this.goBack,
     this.trailing,
   }) : super(key: key);
 
   final String title;
   final String subtitle;
-  final bool canGoBack;
+  final Function? goBack;
   final Widget? trailing;
 
   @override
@@ -34,7 +34,10 @@ class TopNavBar extends StatelessWidget {
       ),
       child: Row(
         children: [
-          if (canGoBack) const GoBackChevron(),
+          if (goBack != null)
+            GoBackChevron(
+              goBack: () => goBack!(),
+            ),
           Expanded(
             child: Padding(
               padding: const EdgeInsets.symmetric(horizontal: 10.0),
@@ -53,7 +56,7 @@ class TopNavBar extends StatelessWidget {
               ),
             ),
           ),
-          if (canGoBack)
+          if (goBack != null)
             Container(
               width: 67,
               padding: const EdgeInsets.only(

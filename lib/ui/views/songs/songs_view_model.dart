@@ -3,7 +3,7 @@ import 'package:mills_music_player/models/song/song.dart';
 import 'package:mills_music_player/services/song/song_service.dart';
 import 'package:stacked/stacked.dart';
 
-class HomeViewModel extends ReactiveViewModel {
+class SongsViewModel extends ReactiveViewModel {
   final _songService = locator<SongService>();
   List<Song> get songs => _songService.reactiveSongs.value;
 

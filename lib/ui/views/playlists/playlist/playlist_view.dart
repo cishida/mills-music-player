@@ -23,7 +23,6 @@ class PlaylistView extends StatelessWidget {
           children: [
             TopNavBar(
               title: playlist.title,
-              canGoBack: true,
               trailing: Text(
                 PluralsUtil.songs(playlist.songs.length),
                 textAlign: TextAlign.right,

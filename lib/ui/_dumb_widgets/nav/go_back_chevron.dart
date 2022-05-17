@@ -3,13 +3,16 @@ import 'package:flutter/material.dart';
 class GoBackChevron extends StatelessWidget {
   const GoBackChevron({
     Key? key,
+    required this.goBack,
   }) : super(key: key);
+
+  final Function goBack;
 
   @override
   Widget build(BuildContext context) {
     return GestureDetector(
       behavior: HitTestBehavior.opaque,
-      onTap: () => Navigator.of(context).pop(),
+      onTap: () => goBack(),
       child: Container(
         width: 67,
         padding: const EdgeInsets.symmetric(

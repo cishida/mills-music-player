@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
 import 'package:mills_music_player/app/app.locator.dart';
-import 'package:mills_music_player/models/factories/playlist_factory.dart';
 import 'package:mills_music_player/models/playlist/playlist.dart';
 import 'package:mills_music_player/services/playlist/playlist_service.dart';
 import 'package:mills_music_player/ui/views/playlists/playlist/playlist_view.dart';

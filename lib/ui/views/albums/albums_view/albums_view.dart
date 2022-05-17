@@ -1,9 +1,8 @@
 import 'package:flutter/material.dart';
-import 'package:intl/intl.dart';
 import 'package:mills_music_player/_constants/_colors.dart';
 import 'package:mills_music_player/_utils/plurals_util.dart';
 import 'package:mills_music_player/models/album/album.dart';
-import 'package:mills_music_player/ui/views/albums/albums_view_model.dart';
+import 'package:mills_music_player/ui/views/albums/albums_view/albums_view_model.dart';
 import 'package:stacked/stacked.dart';
 
 class AlbumsView extends StatelessWidget {
@@ -21,8 +20,6 @@ class AlbumsView extends StatelessWidget {
           itemCount: model.albums.length,
           itemBuilder: (context, index) {
             final Album album = model.albums[index];
-
-            ;
 
             return Container(
               color: Colors.white,
