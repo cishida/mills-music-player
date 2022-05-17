@@ -1,3 +1,4 @@
+import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:mills_music_player/models/playlist/playlist.dart';
 import 'package:mills_music_player/ui/_dumb_widgets/buttons/full_width_pill_button.dart';
@@ -30,8 +31,20 @@ class PlaylistsView extends StatelessWidget {
           panel: NewPlaylistView(
             close: () => model.panelController.close(),
           ),
-          body: SingleChildScrollView(
-            child: Column(
+          body: NestedScrollView(
+            headerSliverBuilder: (
+              BuildContext context,
+              bool innerBoxIsScrolled,
+            ) {
+              return <Widget>[
+                const CupertinoSliverNavigationBar(
+                  largeTitle: Text('Playlists'),
+                  transitionBetweenRoutes: false,
+                  automaticallyImplyLeading: false,
+                )
+              ];
+            },
+            body: Column(
               children: [
                 Padding(
                   padding: const EdgeInsets.symmetric(
@@ -64,6 +77,40 @@ class PlaylistsView extends StatelessWidget {
               ],
             ),
           ),
+          // SingleChildScrollView(
+          //   child: Column(
+          //     children: [
+          //       Padding(
+          //         padding: const EdgeInsets.symmetric(
+          //           horizontal: 30.0,
+          //           vertical: 15.0,
+          //         ),
+          //         child: FullWidthPillButton(
+          //           text: 'Create a new playlist',
+          //           color: Colors.white,
+          //           textColor: Colors.black,
+          //           onPressed: () => model.onNewPlaylist(context),
+          //         ),
+          //       ),
+          //       ListView.builder(
+          //         shrinkWrap: true,
+          //         physics: const NeverScrollableScrollPhysics(),
+          //         itemCount: model.playlists.length,
+          //         itemBuilder: (context, index) {
+          //           final Playlist playlist = model.playlists[index];
+
+          //           return PlaylistTile(
+          //             playlist: playlist,
+          //             onTap: () => model.onPlaylistTap(
+          //               context,
+          //               playlist,
+          //             ),
+          //           );
+          //         },
+          //       ),
+          //     ],
+          //   ),
+          // ),
         );
       },
     );

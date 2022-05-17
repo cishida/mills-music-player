@@ -24,6 +24,8 @@ class AlbumsView extends StatelessWidget {
             return <Widget>[
               const CupertinoSliverNavigationBar(
                 largeTitle: Text('Albums'),
+                transitionBetweenRoutes: false,
+                automaticallyImplyLeading: false,
               )
             ];
           },
