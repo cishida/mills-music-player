@@ -13,7 +13,7 @@ class BottomNavView extends StatefulWidget {
 }
 
 class _BottomNavViewState extends State<BottomNavView> {
-  final Map<int, Widget> _viewCache = <int, Widget>{};
+  // final Map<int, Widget> _viewCache = <int, Widget>{};
 
   List<BottomNavigationBarItem> _buildNavItems() {
     List<BottomNavigationBarItem> items = [];
@@ -66,11 +66,11 @@ class _BottomNavViewState extends State<BottomNavView> {
     );
   }
 
-  Widget getViewForIndex(int index) {
-    if (!_viewCache.containsKey(index)) {
-      _viewCache[index] = ConstValues.pageInfos[index].view;
-    }
+  // Widget getViewForIndex(int index) {
+  //   if (!_viewCache.containsKey(index)) {
+  //     _viewCache[index] = ConstValues.pageInfos[index].view;
+  //   }
 
-    return _viewCache[index]!;
-  }
+  //   return _viewCache[index]!;
+  // }
 }
