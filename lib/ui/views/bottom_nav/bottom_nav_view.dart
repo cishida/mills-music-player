@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:mills_music_player/_constants/_values.dart';
 import 'package:mills_music_player/app/app.router.dart';
 import 'package:mills_music_player/ui/views/bottom_nav/bottom_nav_view_model.dart';
+import 'package:miniplayer/miniplayer.dart';
 import 'package:stacked/stacked.dart';
 import 'package:stacked_services/stacked_services.dart';
 
@@ -33,36 +34,63 @@ class _BottomNavViewState extends State<BottomNavView> {
   @override
   Widget build(BuildContext context) {
     return ViewModelBuilder<BottomNavViewModel>.reactive(
-      builder: (context, viewModel, child) => Scaffold(
-        body: ExtendedNavigator(
-          router: BottomNavViewRouter(),
-          navigatorKey: StackedService.nestedNavigationKey(
-            ConstValues.bottomNavRouterId,
-          ),
-        ),
-        // body: Column(
-        //   children: [
-        //     TopNavBar(
-        //       title: ConstValues.pageInfos[viewModel.currentTabIndex].title,
-        //     ),
-        //     Expanded(
-        //       child: Container(
-        //         color: ConstColors.offWhite,
-        //         child: getViewForIndex(viewModel.currentTabIndex),
-        //       ),
-        //     ),
-        //   ],
-        // ),
-        bottomNavigationBar: BottomNavigationBar(
-          elevation: 2,
-          backgroundColor: Colors.white,
-          currentIndex: viewModel.currentTabIndex,
-          onTap: viewModel.setTabIndex,
-          type: BottomNavigationBarType.fixed,
-          items: _buildNavItems(),
-        ),
-      ),
       viewModelBuilder: () => BottomNavViewModel(),
+      builder: (context, viewModel, child) {
+        return Scaffold(
+          body: Stack(
+            children: <Widget>[
+              Container(
+                margin: const EdgeInsets.only(
+                  bottom: ConstValues.miniplayerHeight,
+                ),
+                child: ExtendedNavigator(
+                  router: BottomNavViewRouter(),
+                  navigatorKey: StackedService.nestedNavigationKey(
+                    ConstValues.bottomNavRouterId,
+                  ),
+                ),
+              ),
+              Miniplayer(
+                minHeight: ConstValues.miniplayerHeight,
+                maxHeight: ConstValues.miniplayerHeight,
+                builder: (height, percentage) => Container(
+                  color: Colors.white,
+                  child: Center(
+                    child: Text('$height, $percentage'),
+                  ),
+                ),
+              ),
+            ],
+          ),
+          // body: ExtendedNavigator(
+          //   router: BottomNavViewRouter(),
+          //   navigatorKey: StackedService.nestedNavigationKey(
+          //     ConstValues.bottomNavRouterId,
+          //   ),
+          // ),
+          // body: Column(
+          //   children: [
+          //     TopNavBar(
+          //       title: ConstValues.pageInfos[viewModel.currentTabIndex].title,
+          //     ),
+          //     Expanded(
+          //       child: Container(
+          //         color: ConstColors.offWhite,
+          //         child: getViewForIndex(viewModel.currentTabIndex),
+          //       ),
+          //     ),
+          //   ],
+          // ),
+          bottomNavigationBar: BottomNavigationBar(
+            elevation: 2,
+            backgroundColor: Colors.white,
+            currentIndex: viewModel.currentTabIndex,
+            onTap: viewModel.setTabIndex,
+            type: BottomNavigationBarType.fixed,
+            items: _buildNavItems(),
+          ),
+        );
+      },
     );
   }
 

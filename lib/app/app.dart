@@ -24,6 +24,7 @@ import 'package:stacked_services/stacked_services.dart';
     // ),
     MaterialRoute(
       page: BottomNavView,
+      maintainState: true,
       children: [
         CustomRoute(
           page: SongsView,
@@ -45,9 +46,11 @@ import 'package:stacked_services/stacked_services.dart';
             MaterialRoute(
               page: AlbumsView,
               initial: true,
+              maintainState: true,
             ),
             MaterialRoute(
               page: AlbumView,
+              maintainState: true,
             ),
           ],
         ),

@@ -37,6 +37,7 @@ dependencies:
   intl: ^0.17.0
   json_annotation: ^4.5.0
   logger: ^1.1.0
+  miniplayer: ^1.0.1
   sliding_up_panel: ^2.0.0+1
   stacked: ^2.3.6
   stacked_hooks: ^0.2.2

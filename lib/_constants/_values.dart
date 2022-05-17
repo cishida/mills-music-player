@@ -6,8 +6,10 @@ import 'package:mills_music_player/ui/views/playlists/playlists_view.dart';
 import 'package:mills_music_player/ui/views/settings/settings_view.dart';
 
 class ConstValues {
-  static int bottomNavRouterId = 1;
-  static int albumsRouterId = 2;
+  static const int bottomNavRouterId = 1;
+  static const int albumsRouterId = 2;
+
+  static const double miniplayerHeight = 150;
 
   static List<PageInfo> pageInfos = [
     PageInfo(

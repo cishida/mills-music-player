@@ -53,6 +53,7 @@ class StackedRouter extends RouterBase {
       return MaterialPageRoute<dynamic>(
         builder: (context) => const BottomNavView(),
         settings: data,
+        maintainState: true,
       );
     },
   };
@@ -161,6 +162,7 @@ class AlbumsContainerViewRouter extends RouterBase {
       return MaterialPageRoute<dynamic>(
         builder: (context) => const AlbumsView(),
         settings: data,
+        maintainState: true,
       );
     },
     AlbumView: (data) {
@@ -171,6 +173,7 @@ class AlbumsContainerViewRouter extends RouterBase {
           album: args.album,
         ),
         settings: data,
+        maintainState: true,
       );
     },
   };
