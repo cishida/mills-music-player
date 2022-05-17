@@ -1,5 +1,6 @@
 import 'package:azlistview/azlistview.dart';
 import 'package:flutter/material.dart';
+import 'package:mills_music_player/_constants/_values.dart';
 import 'package:mills_music_player/models/song/song.dart';
 import 'package:mills_music_player/ui/_smart_widgets/song_lists/_components/song_list_divider.dart';
 import 'package:mills_music_player/ui/_smart_widgets/song_lists/az_song_list/az_song_list_view_model.dart';
@@ -30,7 +31,8 @@ class AZSongListView extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    final double indexBarHeight = MediaQuery.of(context).size.height * .6;
+    final height = MediaQuery.of(context).size.height;
+    final double indexBarHeight = height * ConstValues.azHeight;
 
     return ViewModelBuilder<AZSongListViewModel>.reactive(
       viewModelBuilder: () => AZSongListViewModel(),

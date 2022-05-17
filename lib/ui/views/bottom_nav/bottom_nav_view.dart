@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:mills_music_player/_constants/_values.dart';
 import 'package:mills_music_player/app/app.router.dart';
 import 'package:mills_music_player/ui/views/bottom_nav/bottom_nav_view_model.dart';
+import 'package:mills_music_player/ui/views/bottom_nav/miniplayer/miniplayer_view.dart';
 import 'package:miniplayer/miniplayer.dart';
 import 'package:stacked/stacked.dart';
 import 'package:stacked_services/stacked_services.dart';
@@ -37,30 +38,28 @@ class _BottomNavViewState extends State<BottomNavView> {
       viewModelBuilder: () => BottomNavViewModel(),
       builder: (context, viewModel, child) {
         return Scaffold(
-          body: Stack(
-            children: <Widget>[
-              Container(
-                margin: const EdgeInsets.only(
-                  bottom: ConstValues.miniplayerHeight,
-                ),
-                child: ExtendedNavigator(
-                  router: BottomNavViewRouter(),
-                  navigatorKey: StackedService.nestedNavigationKey(
-                    ConstValues.bottomNavRouterId,
+          body: SafeArea(
+            child: Stack(
+              children: <Widget>[
+                Container(
+                  margin: const EdgeInsets.only(
+                    bottom: ConstValues.miniplayerHeight,
+                  ),
+                  child: ExtendedNavigator(
+                    router: BottomNavViewRouter(),
+                    navigatorKey: StackedService.nestedNavigationKey(
+                      ConstValues.bottomNavRouterId,
+                    ),
                   ),
                 ),
-              ),
-              Miniplayer(
-                minHeight: ConstValues.miniplayerHeight,
-                maxHeight: ConstValues.miniplayerHeight,
-                builder: (height, percentage) => Container(
-                  color: Colors.white,
-                  child: Center(
-                    child: Text('$height, $percentage'),
-                  ),
+                Miniplayer(
+                  minHeight: ConstValues.miniplayerHeight,
+                  maxHeight: ConstValues.miniplayerHeight,
+                  elevation: 10.0,
+                  builder: (height, percentage) => MiniplayerView(),
                 ),
-              ),
-            ],
+              ],
+            ),
           ),
           // body: ExtendedNavigator(
           //   router: BottomNavViewRouter(),

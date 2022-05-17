@@ -9,6 +9,7 @@ class ConstValues {
   static const int bottomNavRouterId = 1;
   static const int albumsRouterId = 2;
 
+  static const double azHeight = 0.5;
   static const double miniplayerHeight = 150;
 
   static List<PageInfo> pageInfos = [
