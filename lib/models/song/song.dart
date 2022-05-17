@@ -9,6 +9,7 @@ class Song with _$Song {
     required String id,
     required String title,
     required List<String> artists,
+    required double tempo,
     Duration? duration,
   }) = _Song;
 
