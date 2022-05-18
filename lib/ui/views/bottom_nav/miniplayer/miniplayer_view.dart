@@ -16,12 +16,14 @@ class MiniplayerView extends StatefulWidget {
   State<MiniplayerView> createState() => _MiniplayerViewState();
 }
 
-class _MiniplayerViewState extends State<MiniplayerView> {
+class _MiniplayerViewState extends State<MiniplayerView>
+    with WidgetsBindingObserver {
   final _player = AudioPlayer();
 
   @override
   void initState() {
     super.initState();
+    WidgetsBinding.instance.addObserver(this);
     _init();
   }
 
@@ -46,6 +48,7 @@ class _MiniplayerViewState extends State<MiniplayerView> {
 
   @override
   void dispose() {
+    WidgetsBinding.instance.removeObserver(this);
     _player.dispose();
     super.dispose();
   }
@@ -64,40 +67,47 @@ class _MiniplayerViewState extends State<MiniplayerView> {
   /// feature of rx_dart to combine the 3 streams of interest into one.
   Stream<PositionData> get _positionDataStream =>
       Rx.combineLatest3<Duration, Duration, Duration?, PositionData>(
-          _player.positionStream,
-          _player.bufferedPositionStream,
-          _player.durationStream,
-          (position, bufferedPosition, duration) => PositionData(
-              position, bufferedPosition, duration ?? Duration.zero));
+        _player.positionStream,
+        _player.bufferedPositionStream,
+        _player.durationStream,
+        (position, bufferedPosition, duration) => PositionData(
+          position,
+          bufferedPosition,
+          duration ?? Duration.zero,
+        ),
+      );
 
   @override
   Widget build(BuildContext context) {
     return ViewModelBuilder<MiniplayerViewModel>.reactive(
       viewModelBuilder: () => MiniplayerViewModel(),
-      builder: (context, viewModel, child) {
+      builder: (context, model, child) {
         return Container(
           color: Colors.white,
           child: Column(
             crossAxisAlignment: CrossAxisAlignment.center,
             mainAxisAlignment: MainAxisAlignment.center,
             children: [
-              // Display play/pause button and volume/speed sliders.
-              ControlButtons(_player),
-              // Display seek bar. Using StreamBuilder, this widget rebuilds
-              // each time the position, buffered position or duration changes.
-              StreamBuilder<PositionData>(
-                stream: _positionDataStream,
-                builder: (context, snapshot) {
-                  final positionData = snapshot.data;
-                  return SeekBar(
-                    duration: positionData?.duration ?? Duration.zero,
-                    position: positionData?.position ?? Duration.zero,
-                    bufferedPosition:
-                        positionData?.bufferedPosition ?? Duration.zero,
-                    onChangeEnd: _player.seek,
-                  );
-                },
+              Text(
+                model.selectedSong.title,
               ),
+              // // Display play/pause button and volume/speed sliders.
+              // ControlButtons(_player),
+              // // Display seek bar. Using StreamBuilder, this widget rebuilds
+              // // each time the position, buffered position or duration changes.
+              // StreamBuilder<PositionData>(
+              //   stream: _positionDataStream,
+              //   builder: (context, snapshot) {
+              //     final positionData = snapshot.data;
+              //     return SeekBar(
+              //       duration: positionData?.duration ?? Duration.zero,
+              //       position: positionData?.position ?? Duration.zero,
+              //       bufferedPosition:
+              //           positionData?.bufferedPosition ?? Duration.zero,
+              //       onChangeEnd: _player.seek,
+              //     );
+              //   },
+              // ),
             ],
           ),
         );

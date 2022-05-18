@@ -17,13 +17,13 @@ class SongTileView extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return ViewModelBuilder.reactive(
+    return ViewModelBuilder<SongTileViewModel>.reactive(
       viewModelBuilder: () => SongTileViewModel(),
       builder: (context, model, child) {
+        bool isSelected = model.selectedSong.id == song.id;
+
         return InkWell(
-          onTap: () {
-            debugPrint('${song.title} tapped');
-          },
+          onTap: () => model.selectSong(song),
           child: Container(
             width: double.infinity,
             color: Colors.white,
@@ -49,9 +49,10 @@ class SongTileView extends StatelessWidget {
                         ),
                       ),
                       Text(
-                        song.artists.join(', '),
-                        style: const TextStyle(
-                          color: ConstColors.navGray,
+                        isSelected ? 'Now Playing' : song.artists.join(', '),
+                        style: TextStyle(
+                          color:
+                              isSelected ? Colors.orange : ConstColors.navGray,
                           fontSize: 16.0,
                         ),
                       ),

@@ -16,6 +16,7 @@ class BottomNavView extends StatefulWidget {
 
 class _BottomNavViewState extends State<BottomNavView> {
   // final Map<int, Widget> _viewCache = <int, Widget>{};
+  final MiniplayerController _controller = MiniplayerController();
 
   List<BottomNavigationBarItem> _buildNavItems() {
     List<BottomNavigationBarItem> items = [];
@@ -36,14 +37,17 @@ class _BottomNavViewState extends State<BottomNavView> {
   Widget build(BuildContext context) {
     return ViewModelBuilder<BottomNavViewModel>.reactive(
       viewModelBuilder: () => BottomNavViewModel(),
-      builder: (context, viewModel, child) {
+      builder: (context, model, child) {
+        bool shouldShowPlayer =
+            model.selectedSong.id != ConstValues.emptySongID;
+
         return Scaffold(
           body: SafeArea(
             child: Stack(
               children: <Widget>[
                 Container(
-                  margin: const EdgeInsets.only(
-                    bottom: ConstValues.miniplayerHeight,
+                  margin: EdgeInsets.only(
+                    bottom: shouldShowPlayer ? ConstValues.miniplayerHeight : 0,
                   ),
                   child: ExtendedNavigator(
                     router: BottomNavViewRouter(),
@@ -52,12 +56,14 @@ class _BottomNavViewState extends State<BottomNavView> {
                     ),
                   ),
                 ),
-                Miniplayer(
-                  minHeight: ConstValues.miniplayerHeight,
-                  maxHeight: ConstValues.miniplayerHeight,
-                  elevation: 10.0,
-                  builder: (height, percentage) => MiniplayerView(),
-                ),
+                if (shouldShowPlayer)
+                  Miniplayer(
+                    minHeight: ConstValues.miniplayerHeight,
+                    maxHeight: ConstValues.miniplayerHeight,
+                    elevation: 10.0,
+                    builder: (height, percentage) => const MiniplayerView(),
+                    controller: _controller,
+                  ),
               ],
             ),
           ),
@@ -70,12 +76,12 @@ class _BottomNavViewState extends State<BottomNavView> {
           // body: Column(
           //   children: [
           //     TopNavBar(
-          //       title: ConstValues.pageInfos[viewModel.currentTabIndex].title,
+          //       title: ConstValues.pageInfos[model.currentTabIndex].title,
           //     ),
           //     Expanded(
           //       child: Container(
           //         color: ConstColors.offWhite,
-          //         child: getViewForIndex(viewModel.currentTabIndex),
+          //         child: getViewForIndex(model.currentTabIndex),
           //       ),
           //     ),
           //   ],
@@ -83,8 +89,8 @@ class _BottomNavViewState extends State<BottomNavView> {
           bottomNavigationBar: BottomNavigationBar(
             elevation: 2,
             backgroundColor: Colors.white,
-            currentIndex: viewModel.currentTabIndex,
-            onTap: viewModel.setTabIndex,
+            currentIndex: model.currentTabIndex,
+            onTap: model.setTabIndex,
             type: BottomNavigationBarType.fixed,
             items: _buildNavItems(),
           ),
