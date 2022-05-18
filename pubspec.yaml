@@ -41,6 +41,7 @@ dependencies:
   just_audio: ^0.9.21
   logger: ^1.1.0
   miniplayer: ^1.0.1
+  rxdart: ^0.27.3
   sliding_up_panel: ^2.0.0+1
   stacked: ^2.3.6
   stacked_hooks: ^0.2.2

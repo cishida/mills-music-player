@@ -50,7 +50,7 @@ class SongTileView extends StatelessWidget {
                       ),
                       Text(
                         song.artists.join(', '),
-                        style: TextStyle(
+                        style: const TextStyle(
                           color: ConstColors.navGray,
                           fontSize: 16.0,
                         ),

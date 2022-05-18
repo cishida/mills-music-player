@@ -124,41 +124,41 @@ class AlbumsView extends StatelessWidget {
         //   ],
         // );
 
-        ListView.builder(
-          shrinkWrap: true,
-          itemCount: model.albums.length,
-          itemBuilder: (context, index) {
-            final Album album = model.albums[index];
+        // ListView.builder(
+        //   shrinkWrap: true,
+        //   itemCount: model.albums.length,
+        //   itemBuilder: (context, index) {
+        //     final Album album = model.albums[index];
 
-            return Container(
-              color: Colors.white,
-              child: Column(
-                children: [
-                  ListTile(
-                    selectedColor: ConstColors.offWhite,
-                    onTap: () => model.onAlbumTap(
-                      context,
-                      album,
-                    ),
-                    title: Text(
-                      album.title,
-                    ),
-                    subtitle: Text(
-                      album.artists.join(', '),
-                    ),
-                    trailing: Text(
-                      PluralsUtil.songs(album.songs.length),
-                    ),
-                  ),
-                  const Divider(
-                    color: ConstColors.lightDivider,
-                    height: 1.0,
-                  ),
-                ],
-              ),
-            );
-          },
-        );
+        //     return Container(
+        //       color: Colors.white,
+        //       child: Column(
+        //         children: [
+        //           ListTile(
+        //             selectedColor: ConstColors.offWhite,
+        //             onTap: () => model.onAlbumTap(
+        //               context,
+        //               album,
+        //             ),
+        //             title: Text(
+        //               album.title,
+        //             ),
+        //             subtitle: Text(
+        //               album.artists.join(', '),
+        //             ),
+        //             trailing: Text(
+        //               PluralsUtil.songs(album.songs.length),
+        //             ),
+        //           ),
+        //           const Divider(
+        //             color: ConstColors.lightDivider,
+        //             height: 1.0,
+        //           ),
+        //         ],
+        //       ),
+        //     );
+        //   },
+        // );
       },
     );
   }

@@ -1,5 +1,4 @@
 import 'package:flutter/cupertino.dart';
-import 'package:flutter/material.dart';
 import 'package:mills_music_player/ui/views/settings/settings_view_model.dart';
 import 'package:stacked/stacked.dart';
 

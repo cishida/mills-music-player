@@ -37,14 +37,14 @@ class _MiniplayerViewState extends State<MiniplayerView>
     // Listen to errors during playback.
     _player.playbackEventStream.listen((event) {},
         onError: (Object e, StackTrace stackTrace) {
-      print('A stream error occurred: $e');
+      debugPrint('A stream error occurred: $e');
     });
     // Try to load audio from a source and catch any errors.
     try {
       await _player.setAudioSource(AudioSource.uri(Uri.parse(
           "https://s3.amazonaws.com/scifri-episodes/scifri20181123-episode.mp3")));
     } catch (e) {
-      print("Error loading audio source: $e");
+      debugPrint("Error loading audio source: $e");
     }
   }
 
