@@ -49,15 +49,20 @@ class SongTileView extends StatelessWidget {
                         ),
                       ),
                       Text(
-                        isSelected ? 'Now Playing' : song.artists.join(', '),
+                        song.artists.join(', '),
                         style: TextStyle(
-                          color:
-                              isSelected ? Colors.orange : ConstColors.navGray,
+                          color: ConstColors.navGray,
                           fontSize: 16.0,
                         ),
                       ),
                       Text(
-                        DurationUtil.format(song.duration),
+                        isSelected
+                            ? 'Now Playing'
+                            : DurationUtil.format(song.duration),
+                        style: TextStyle(
+                          color:
+                              isSelected ? Colors.orange : ConstColors.navGray,
+                        ),
                       ),
                     ],
                   ),
