@@ -7,6 +7,10 @@ class MiniplayerViewModel extends ReactiveViewModel {
   final PlayerService _playerService = locator<PlayerService>();
   Song get selectedSong => _playerService.reactiveSong.value;
 
+  void closePlayer() {
+    _playerService.clearSong();
+  }
+
   @override
   List<ReactiveServiceMixin> get reactiveServices => [
         _playerService,

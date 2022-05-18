@@ -136,7 +136,11 @@ class PositionData {
   final Duration bufferedPosition;
   final Duration duration;
 
-  PositionData(this.position, this.bufferedPosition, this.duration);
+  PositionData(
+    this.position,
+    this.bufferedPosition,
+    this.duration,
+  );
 }
 
 void showSliderDialog({
@@ -162,7 +166,7 @@ void showSliderDialog({
           child: Column(
             children: [
               Text(
-                '${snapshot.data?.toStringAsFixed(2)}$valueSuffix',
+                '${((snapshot.data ?? 1) * 100).toStringAsFixed(0)}%',
                 style: const TextStyle(
                   fontFamily: 'Fixed',
                   fontWeight: FontWeight.bold,

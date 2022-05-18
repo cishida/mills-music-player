@@ -12,22 +12,32 @@ class ControlButtons extends StatelessWidget {
     return Row(
       mainAxisSize: MainAxisSize.min,
       children: [
-        // Opens volume slider dialog
+        const SizedBox(
+          width: 55,
+        ),
+
         IconButton(
-          icon: const Icon(Icons.volume_up),
+          icon: const Icon(Icons.skip_previous_rounded),
+          iconSize: 48.0,
           onPressed: () {
-            showSliderDialog(
-              context: context,
-              title: "Adjust volume",
-              divisions: 10,
-              min: 0.0,
-              max: 1.0,
-              value: player.volume,
-              stream: player.volumeStream,
-              onChanged: player.setVolume,
-            );
+            debugPrint('Previous song');
           },
         ),
+        // IconButton(
+        //   icon: const Icon(Icons.volume_up),
+        //   onPressed: () {
+        //     showSliderDialog(
+        //       context: context,
+        //       title: "Adjust volume",
+        //       divisions: 10,
+        //       min: 0.0,
+        //       max: 1.0,
+        //       value: player.volume,
+        //       stream: player.volumeStream,
+        //       onChanged: player.setVolume,
+        //     );
+        //   },
+        // ),
 
         /// This StreamBuilder rebuilds whenever the player state changes, which
         /// includes the playing/paused state and also the
@@ -49,7 +59,7 @@ class ControlButtons extends StatelessWidget {
               );
             } else if (playing != true) {
               return IconButton(
-                icon: const Icon(Icons.play_arrow),
+                icon: const Icon(Icons.play_arrow_rounded),
                 iconSize: 64.0,
                 onPressed: player.play,
               );
@@ -68,29 +78,61 @@ class ControlButtons extends StatelessWidget {
             }
           },
         ),
+        IconButton(
+          icon: const Icon(Icons.skip_next_rounded),
+          iconSize: 48.0,
+          onPressed: () {
+            debugPrint('Next song');
+          },
+        ),
+
+        // IconButton(
+        //   icon: const Icon(Icons.speed_rounded),
+        //   iconSize: 30.0,
+        //   onPressed: () {
+        //     debugPrint('Increase tempo');
+        //   },
+        // ),
+
         // Opens speed slider dialog
         StreamBuilder<double>(
           stream: player.speedStream,
-          builder: (context, snapshot) => IconButton(
-            icon: Text(
-              '${snapshot.data?.toStringAsFixed(2)}x',
-              style: const TextStyle(
-                fontWeight: FontWeight.bold,
+          builder: (context, snapshot) {
+            return GestureDetector(
+              onTap: () {
+                showSliderDialog(
+                  context: context,
+                  title: "Adjust tempo",
+                  divisions: 190,
+                  min: 0.10,
+                  max: 2.00,
+                  value: player.speed,
+                  stream: player.speedStream,
+                  onChanged: player.setSpeed,
+                );
+              },
+              child: Container(
+                margin: const EdgeInsets.only(
+                  left: 20.0,
+                  top: 15.0,
+                ),
+                child: Column(
+                  children: [
+                    const Icon(
+                      Icons.speed_rounded,
+                      size: 32.0,
+                    ),
+                    Text(
+                      '${((snapshot.data ?? 1) * 100).toStringAsFixed(0)}%',
+                      style: const TextStyle(
+                        fontWeight: FontWeight.bold,
+                      ),
+                    ),
+                  ],
+                ),
               ),
-            ),
-            onPressed: () {
-              showSliderDialog(
-                context: context,
-                title: "Adjust tempo",
-                divisions: 190,
-                min: 0.10,
-                max: 2.00,
-                value: player.speed,
-                stream: player.speedStream,
-                onChanged: player.setSpeed,
-              );
-            },
-          ),
+            );
+          },
         ),
       ],
     );

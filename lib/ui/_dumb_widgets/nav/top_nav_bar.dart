@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:mills_music_player/_constants/_colors.dart';
 import 'package:mills_music_player/ui/_dumb_widgets/nav/go_back_chevron.dart';
-import 'package:mills_music_player/ui/_dumb_widgets/nav/top_nav_text_scroll.dart';
+import 'package:mills_music_player/ui/_dumb_widgets/text/custom_text_scroll.dart';
 
 class TopNavBar extends StatelessWidget {
   const TopNavBar({
@@ -43,9 +43,9 @@ class TopNavBar extends StatelessWidget {
               padding: const EdgeInsets.symmetric(horizontal: 10.0),
               child: Column(
                 children: [
-                  TopNavTextScroll(text: title),
+                  CustomTextScroll(text: title),
                   if (subtitle != '')
-                    TopNavTextScroll(
+                    CustomTextScroll(
                       text: subtitle,
                       style: const TextStyle(
                         fontSize: 16.0,

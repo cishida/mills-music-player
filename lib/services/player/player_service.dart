@@ -19,6 +19,15 @@ class PlayerService with ReactiveServiceMixin {
     listenToReactiveValues([_reactiveSong]);
   }
 
+  void clearSong() {
+    _reactiveSong.value = Song(
+      id: ConstValues.emptySongID,
+      title: '',
+      artists: [],
+      tempo: 0,
+    );
+  }
+
   void selectSong(Song song) {
     _reactiveSong.value = song;
   }

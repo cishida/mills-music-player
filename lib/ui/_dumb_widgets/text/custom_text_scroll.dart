@@ -2,8 +2,8 @@ import 'package:flutter/material.dart';
 import 'package:mills_music_player/_constants/_colors.dart';
 import 'package:text_scroll/text_scroll.dart';
 
-class TopNavTextScroll extends StatelessWidget {
-  const TopNavTextScroll({
+class CustomTextScroll extends StatelessWidget {
+  const CustomTextScroll({
     Key? key,
     required this.text,
     this.style,
