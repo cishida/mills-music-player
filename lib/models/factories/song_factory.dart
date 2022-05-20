@@ -1,16 +1,31 @@
+import 'dart:math';
+
 import 'package:mills_music_player/models/factories/model_factory.dart';
 import 'package:mills_music_player/models/song/song.dart';
 
 class SongFactory extends ModelFactory<Song> {
+  final _random = Random();
+
+  String createFakeName() {
+    return '${faker.person.firstName()} ${faker.person.lastName()}'.trim();
+  }
+
   @override
   Song generateFake() {
     String title = faker.lorem.words(4).join(' ');
+    List<String> arrangers = [];
+    int num = 1 + _random.nextInt(2);
+    for (var i = 0; i < num; i++) {
+      arrangers.add(
+        createFakeName(),
+      );
+    }
+
     return Song(
       id: createFakeUuid(),
       title: title[0].toUpperCase() + title.substring(1, title.length - 1),
-      artists: [
-        '${faker.person.firstName()} ${faker.person.lastName()}'.trim()
-      ],
+      composer: createFakeName(),
+      arrangers: arrangers,
       tempo: 100.0,
       duration: Duration(seconds: faker.randomGenerator.integer(300, min: 100)),
     );

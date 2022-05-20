@@ -3,12 +3,13 @@ import 'package:freezed_annotation/freezed_annotation.dart';
 part 'song.freezed.dart';
 part 'song.g.dart';
 
-@freezed
+@unfreezed
 class Song with _$Song {
   factory Song({
-    required String id,
-    required String title,
-    required List<String> artists,
+    required final String id,
+    required final String title,
+    required final String composer,
+    required final List<String> arrangers,
     required double tempo,
     Duration? duration,
   }) = _Song;

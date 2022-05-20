@@ -158,11 +158,16 @@ void showSliderDialog({
   showDialog<void>(
     context: context,
     builder: (context) => AlertDialog(
+      contentPadding: const EdgeInsets.symmetric(
+        vertical: 10.0,
+        horizontal: 10.0,
+      ),
       title: Text(title, textAlign: TextAlign.center),
       content: StreamBuilder<double>(
         stream: stream,
         builder: (context, snapshot) => SizedBox(
-          height: 100.0,
+          height: 90.0,
+          width: MediaQuery.of(context).size.width * .9,
           child: Column(
             children: [
               Text(

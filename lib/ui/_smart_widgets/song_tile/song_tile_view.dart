@@ -20,7 +20,7 @@ class SongTileView extends StatelessWidget {
     return ViewModelBuilder<SongTileViewModel>.reactive(
       viewModelBuilder: () => SongTileViewModel(),
       builder: (context, model, child) {
-        bool isSelected = model.selectedSong.id == song.id;
+        bool isSelected = model.currentSong.id == song.id;
 
         return InkWell(
           onTap: () => model.selectSong(song),
@@ -42,6 +42,13 @@ class SongTileView extends StatelessWidget {
                     crossAxisAlignment: CrossAxisAlignment.start,
                     children: [
                       Text(
+                        'Test tempo: ${song.tempo}',
+                        style: const TextStyle(
+                          color: Colors.black,
+                          fontSize: 18.0,
+                        ),
+                      ),
+                      Text(
                         song.title,
                         style: const TextStyle(
                           color: Colors.black,
@@ -49,7 +56,14 @@ class SongTileView extends StatelessWidget {
                         ),
                       ),
                       Text(
-                        song.artists.join(', '),
+                        'Composed by ${song.composer}',
+                        style: const TextStyle(
+                          color: ConstColors.navGray,
+                          fontSize: 16.0,
+                        ),
+                      ),
+                      Text(
+                        'Arranged by ${song.arrangers.join(', ')}',
                         style: const TextStyle(
                           color: ConstColors.navGray,
                           fontSize: 16.0,

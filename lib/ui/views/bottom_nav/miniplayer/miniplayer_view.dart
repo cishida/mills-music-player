@@ -1,10 +1,9 @@
 import 'package:audio_session/audio_session.dart';
 import 'package:flutter/material.dart';
 import 'package:just_audio/just_audio.dart';
-import 'package:mills_music_player/_constants/_colors.dart';
 import 'package:mills_music_player/_utils/just_audio_common.dart';
 import 'package:mills_music_player/ui/_dumb_widgets/text/custom_text_scroll.dart';
-import 'package:mills_music_player/ui/views/bottom_nav/miniplayer/_components/control_buttons.dart';
+import 'package:mills_music_player/ui/views/bottom_nav/miniplayer/control_buttons/control_buttons.dart';
 import 'package:mills_music_player/ui/views/bottom_nav/miniplayer/miniplayer_view_model.dart';
 import 'package:stacked/stacked.dart';
 import 'package:rxdart/rxdart.dart';
@@ -104,20 +103,23 @@ class _MiniplayerViewState extends State<MiniplayerView>
                   ),
                   Column(
                     children: [
+                      const SizedBox(
+                        height: 8.0,
+                      ),
                       CustomTextScroll(
-                        text: model.selectedSong.title,
+                        text: model.currentSong.title,
                         style: const TextStyle(
                           fontSize: 20,
                           fontWeight: FontWeight.w500,
                         ),
                       ),
-                      CustomTextScroll(
-                        text: model.selectedSong.artists.join(', '),
-                        style: const TextStyle(
-                          fontSize: 16,
-                          color: ConstColors.navGray,
-                        ),
-                      ),
+                      // CustomTextScroll(
+                      //   text: model.selectedSong.artists.join(', '),
+                      //   style: const TextStyle(
+                      //     fontSize: 16,
+                      //     color: ConstColors.navGray,
+                      //   ),
+                      // ),
                     ],
                   ),
                   IconButton(
@@ -131,7 +133,9 @@ class _MiniplayerViewState extends State<MiniplayerView>
               ),
 
               // // Display play/pause button and volume/speed sliders.
-              ControlButtons(_player),
+              ControlButtons(
+                player: _player,
+              ),
               // // Display seek bar. Using StreamBuilder, this widget rebuilds
               // // each time the position, buffered position or duration changes.
               StreamBuilder<PositionData>(

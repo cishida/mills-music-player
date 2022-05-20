@@ -38,16 +38,15 @@ class _BottomNavViewState extends State<BottomNavView> {
     return ViewModelBuilder<BottomNavViewModel>.reactive(
       viewModelBuilder: () => BottomNavViewModel(),
       builder: (context, model, child) {
-        bool shouldShowPlayer =
-            model.selectedSong.id != ConstValues.emptySongID;
-
         return Scaffold(
           body: SafeArea(
             child: Stack(
               children: <Widget>[
                 Container(
                   margin: EdgeInsets.only(
-                    bottom: shouldShowPlayer ? ConstValues.miniplayerHeight : 0,
+                    bottom: model.shouldShowPlayer
+                        ? ConstValues.miniplayerHeight
+                        : 0,
                   ),
                   child: ExtendedNavigator(
                     router: BottomNavViewRouter(),
@@ -56,7 +55,7 @@ class _BottomNavViewState extends State<BottomNavView> {
                     ),
                   ),
                 ),
-                if (shouldShowPlayer)
+                if (model.shouldShowPlayer)
                   Miniplayer(
                     minHeight: ConstValues.miniplayerHeight,
                     maxHeight: ConstValues.miniplayerHeight,

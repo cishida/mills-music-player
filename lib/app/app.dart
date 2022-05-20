@@ -120,9 +120,9 @@ import 'package:stacked_services/stacked_services.dart';
     LazySingleton(
       classType: PlaylistService,
     ),
-    LazySingleton(
-      classType: PlayerService,
-    ),
+    // LazySingleton(
+    //   classType: PlayerService,
+    // ),
   ],
   logger: StackedLogger(),
 )

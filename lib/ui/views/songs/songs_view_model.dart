@@ -5,7 +5,9 @@ import 'package:stacked/stacked.dart';
 
 class SongsViewModel extends ReactiveViewModel {
   final _songService = locator<SongService>();
-  List<Song> get songs => _songService.reactiveSongs.value;
+  List<Song> get songs {
+    return _songService.allSongs.value;
+  }
 
   @override
   List<ReactiveServiceMixin> get reactiveServices => [

@@ -20,10 +20,7 @@ class AlbumFactory extends ModelFactory<Album> {
       artists: [
         '${faker.person.firstName()} ${faker.person.lastName()}'.trim()
       ],
-      songs: _songService.reactiveSongs.value
-          .skip(index)
-          .take(albumLength)
-          .toList(),
+      songs: _songService.allSongs.value.skip(index).take(albumLength).toList(),
     );
 
     index += albumLength;

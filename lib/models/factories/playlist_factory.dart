@@ -18,10 +18,8 @@ class PlaylistFactory extends ModelFactory<Playlist> {
       id: createFakeUuid(),
       title: faker.lorem.words(3).join(' '),
       createdAt: DateTime.now(),
-      songs: _songService.reactiveSongs.value
-          .skip(index)
-          .take(playlistLength)
-          .toList(),
+      songs:
+          _songService.allSongs.value.skip(index).take(playlistLength).toList(),
     );
 
     index += playlistLength;

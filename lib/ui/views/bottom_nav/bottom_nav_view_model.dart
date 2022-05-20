@@ -2,13 +2,15 @@ import 'package:mills_music_player/_constants/_values.dart';
 import 'package:mills_music_player/app/app.locator.dart';
 import 'package:mills_music_player/app/app.router.dart';
 import 'package:mills_music_player/models/song/song.dart';
-import 'package:mills_music_player/services/player/player_service.dart';
+import 'package:mills_music_player/services/song/song_service.dart';
 import 'package:stacked/stacked.dart';
 import 'package:stacked_services/stacked_services.dart';
 
 class BottomNavViewModel extends ReactiveViewModel {
-  final PlayerService _playerService = locator<PlayerService>();
-  Song get selectedSong => _playerService.reactiveSong.value;
+  // final PlayerService _playerService = locator<PlayerService>();
+  // Song get selectedSong => _playerService.reactiveSong.value;
+  final SongService _songService = locator<SongService>();
+  Song get currentSong => _songService.currentSong.value;
 
   final _navigationService = locator<NavigationService>();
   int _currentTabIndex = 0;
@@ -43,8 +45,10 @@ class BottomNavViewModel extends ReactiveViewModel {
     notifyListeners();
   }
 
+  bool get shouldShowPlayer => _songService.currentIndex.value > -1;
+
   @override
   List<ReactiveServiceMixin> get reactiveServices => [
-        _playerService,
+        _songService,
       ];
 }

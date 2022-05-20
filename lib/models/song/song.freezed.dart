@@ -22,9 +22,12 @@ Song _$SongFromJson(Map<String, dynamic> json) {
 mixin _$Song {
   String get id => throw _privateConstructorUsedError;
   String get title => throw _privateConstructorUsedError;
-  List<String> get artists => throw _privateConstructorUsedError;
+  String get composer => throw _privateConstructorUsedError;
+  List<String> get arrangers => throw _privateConstructorUsedError;
   double get tempo => throw _privateConstructorUsedError;
+  set tempo(double value) => throw _privateConstructorUsedError;
   Duration? get duration => throw _privateConstructorUsedError;
+  set duration(Duration? value) => throw _privateConstructorUsedError;
 
   Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
   @JsonKey(ignore: true)
@@ -38,7 +41,8 @@ abstract class $SongCopyWith<$Res> {
   $Res call(
       {String id,
       String title,
-      List<String> artists,
+      String composer,
+      List<String> arrangers,
       double tempo,
       Duration? duration});
 }
@@ -55,7 +59,8 @@ class _$SongCopyWithImpl<$Res> implements $SongCopyWith<$Res> {
   $Res call({
     Object? id = freezed,
     Object? title = freezed,
-    Object? artists = freezed,
+    Object? composer = freezed,
+    Object? arrangers = freezed,
     Object? tempo = freezed,
     Object? duration = freezed,
   }) {
@@ -68,9 +73,13 @@ class _$SongCopyWithImpl<$Res> implements $SongCopyWith<$Res> {
           ? _value.title
           : title // ignore: cast_nullable_to_non_nullable
               as String,
-      artists: artists == freezed
-          ? _value.artists
-          : artists // ignore: cast_nullable_to_non_nullable
+      composer: composer == freezed
+          ? _value.composer
+          : composer // ignore: cast_nullable_to_non_nullable
+              as String,
+      arrangers: arrangers == freezed
+          ? _value.arrangers
+          : arrangers // ignore: cast_nullable_to_non_nullable
               as List<String>,
       tempo: tempo == freezed
           ? _value.tempo
@@ -92,7 +101,8 @@ abstract class _$$_SongCopyWith<$Res> implements $SongCopyWith<$Res> {
   $Res call(
       {String id,
       String title,
-      List<String> artists,
+      String composer,
+      List<String> arrangers,
       double tempo,
       Duration? duration});
 }
@@ -110,7 +120,8 @@ class __$$_SongCopyWithImpl<$Res> extends _$SongCopyWithImpl<$Res>
   $Res call({
     Object? id = freezed,
     Object? title = freezed,
-    Object? artists = freezed,
+    Object? composer = freezed,
+    Object? arrangers = freezed,
     Object? tempo = freezed,
     Object? duration = freezed,
   }) {
@@ -123,9 +134,13 @@ class __$$_SongCopyWithImpl<$Res> extends _$SongCopyWithImpl<$Res>
           ? _value.title
           : title // ignore: cast_nullable_to_non_nullable
               as String,
-      artists: artists == freezed
-          ? _value._artists
-          : artists // ignore: cast_nullable_to_non_nullable
+      composer: composer == freezed
+          ? _value.composer
+          : composer // ignore: cast_nullable_to_non_nullable
+              as String,
+      arrangers: arrangers == freezed
+          ? _value.arrangers
+          : arrangers // ignore: cast_nullable_to_non_nullable
               as List<String>,
       tempo: tempo == freezed
           ? _value.tempo
@@ -145,10 +160,10 @@ class _$_Song implements _Song {
   _$_Song(
       {required this.id,
       required this.title,
-      required final List<String> artists,
+      required this.composer,
+      required this.arrangers,
       required this.tempo,
-      this.duration})
-      : _artists = artists;
+      this.duration});
 
   factory _$_Song.fromJson(Map<String, dynamic> json) => _$$_SongFromJson(json);
 
@@ -156,44 +171,19 @@ class _$_Song implements _Song {
   final String id;
   @override
   final String title;
-  final List<String> _artists;
   @override
-  List<String> get artists {
-    // ignore: implicit_dynamic_type
-    return EqualUnmodifiableListView(_artists);
-  }
-
+  final String composer;
   @override
-  final double tempo;
+  final List<String> arrangers;
   @override
-  final Duration? duration;
+  double tempo;
+  @override
+  Duration? duration;
 
   @override
   String toString() {
-    return 'Song(id: $id, title: $title, artists: $artists, tempo: $tempo, duration: $duration)';
+    return 'Song(id: $id, title: $title, composer: $composer, arrangers: $arrangers, tempo: $tempo, duration: $duration)';
   }
-
-  @override
-  bool operator ==(dynamic other) {
-    return identical(this, other) ||
-        (other.runtimeType == runtimeType &&
-            other is _$_Song &&
-            const DeepCollectionEquality().equals(other.id, id) &&
-            const DeepCollectionEquality().equals(other.title, title) &&
-            const DeepCollectionEquality().equals(other._artists, _artists) &&
-            const DeepCollectionEquality().equals(other.tempo, tempo) &&
-            const DeepCollectionEquality().equals(other.duration, duration));
-  }
-
-  @JsonKey(ignore: true)
-  @override
-  int get hashCode => Object.hash(
-      runtimeType,
-      const DeepCollectionEquality().hash(id),
-      const DeepCollectionEquality().hash(title),
-      const DeepCollectionEquality().hash(_artists),
-      const DeepCollectionEquality().hash(tempo),
-      const DeepCollectionEquality().hash(duration));
 
   @JsonKey(ignore: true)
   @override
@@ -210,9 +200,10 @@ abstract class _Song implements Song {
   factory _Song(
       {required final String id,
       required final String title,
-      required final List<String> artists,
-      required final double tempo,
-      final Duration? duration}) = _$_Song;
+      required final String composer,
+      required final List<String> arrangers,
+      required double tempo,
+      Duration? duration}) = _$_Song;
 
   factory _Song.fromJson(Map<String, dynamic> json) = _$_Song.fromJson;
 
@@ -221,7 +212,9 @@ abstract class _Song implements Song {
   @override
   String get title => throw _privateConstructorUsedError;
   @override
-  List<String> get artists => throw _privateConstructorUsedError;
+  String get composer => throw _privateConstructorUsedError;
+  @override
+  List<String> get arrangers => throw _privateConstructorUsedError;
   @override
   double get tempo => throw _privateConstructorUsedError;
   @override
