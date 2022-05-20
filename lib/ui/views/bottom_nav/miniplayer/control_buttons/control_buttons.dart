@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
 import 'package:just_audio/just_audio.dart';
-import 'package:mills_music_player/_utils/just_audio_common.dart';
 import 'package:mills_music_player/ui/_dumb_widgets/text/tempo_percent.dart';
 import 'package:mills_music_player/ui/views/bottom_nav/miniplayer/control_buttons/control_buttons_view_model.dart';
 import 'package:mills_music_player/ui/views/bottom_nav/miniplayer/control_buttons/tempo_dialog/tempo_dialog_view.dart';
@@ -14,56 +13,19 @@ class ControlButtons extends StatelessWidget {
 
   final AudioPlayer player;
 
-  void showTempoDialog(
-    BuildContext context,
-    ControlButtonsViewModel model,
-  ) {
-    showDialog<void>(
-      context: context,
-      builder: (context) => AlertDialog(
-        contentPadding: const EdgeInsets.symmetric(
-          vertical: 10.0,
-          horizontal: 10.0,
-        ),
-        title: const Text(
-          'Adjust Tempo',
-          textAlign: TextAlign.center,
-        ),
-        content: SizedBox(
-          height: 90.0,
-          width: MediaQuery.of(context).size.width * .9,
-          child: Column(
-            children: [
-              TempoPercent(
-                value: model.currentSong.tempo,
-              ),
-              Slider(
-                divisions: 190,
-                min: 10,
-                max: 200,
-                value: model.currentSong.tempo,
-                onChanged: (tempo) => model.setTempo(tempo),
-              ),
-            ],
-          ),
-        ),
-      ),
-    );
-  }
-
   @override
   Widget build(BuildContext context) {
     return ViewModelBuilder<ControlButtonsViewModel>.reactive(
       viewModelBuilder: () => ControlButtonsViewModel(),
       builder: (context, model, child) {
-        final double tempoIconWidth = 55;
+        const double tempoIconWidth = 55;
 
         return Column(
           children: [
             Row(
               mainAxisSize: MainAxisSize.min,
               children: [
-                SizedBox(
+                const SizedBox(
                   width: tempoIconWidth,
                 ),
 
@@ -74,21 +36,6 @@ class ControlButtons extends StatelessWidget {
                     debugPrint('Previous song');
                   },
                 ),
-                // IconButton(
-                //   icon: const Icon(Icons.volume_up),
-                //   onPressed: () {
-                //     showSliderDialog(
-                //       context: context,
-                //       title: "Adjust volume",
-                //       divisions: 10,
-                //       min: 0.0,
-                //       max: 1.0,
-                //       value: player.volume,
-                //       stream: player.volumeStream,
-                //       onChanged: player.setVolume,
-                //     );
-                //   },
-                // ),
 
                 /// This StreamBuilder rebuilds whenever the player state changes, which
                 /// includes the playing/paused state and also the
@@ -137,15 +84,7 @@ class ControlButtons extends StatelessWidget {
                   },
                 ),
 
-                // IconButton(
-                //   icon: const Icon(Icons.speed_rounded),
-                //   iconSize: 30.0,
-                //   onPressed: () {
-                //     debugPrint('Increase tempo');
-                //   },
-                // ),
-
-                // Opens speed slider dialog
+                // Opens tempo slider dialog
                 GestureDetector(
                   onTap: () {
                     showDialog<void>(
@@ -162,20 +101,6 @@ class ControlButtons extends StatelessWidget {
                         content: TempoDialogView(),
                       ),
                     );
-                    // showTempoDialog(
-                    //   context,
-                    //   model,
-                    // );
-
-                    // showSliderDialog(
-                    //   context: context,
-                    //   title: "Adjust tempo",
-                    //   divisions: 190,
-                    //   min: 10,
-                    //   max: 200,
-                    //   value: model.currentSong.tempo,
-                    //   onChanged: (tempo) => model.setTempo(tempo),
-                    // );
                   },
                   child: Container(
                     width: tempoIconWidth,
@@ -201,13 +126,6 @@ class ControlButtons extends StatelessWidget {
                 ),
               ],
             ),
-            // Slider(
-            //   divisions: 190,
-            //   min: 10,
-            //   max: 200,
-            //   value: model.currentSong.tempo,
-            //   onChanged: (tempo) => model.setTempo(tempo),
-            // ),
           ],
         );
       },
