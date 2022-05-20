@@ -10,10 +10,7 @@ import 'package:stacked/stacked.dart';
 class AZSongListView extends StatelessWidget {
   const AZSongListView({
     Key? key,
-    required this.unsortedSongs,
   }) : super(key: key);
-
-  final List<Song> unsortedSongs;
 
   final indexBarOptions = const IndexBarOptions(
     needRebuild: true,
@@ -37,7 +34,7 @@ class AZSongListView extends StatelessWidget {
     return ViewModelBuilder<AZSongListViewModel>.reactive(
       viewModelBuilder: () => AZSongListViewModel(),
       builder: (context, model, child) {
-        model.setSongData(unsortedSongs);
+        model.setSongData();
 
         return AzListView(
           data: model.songData,

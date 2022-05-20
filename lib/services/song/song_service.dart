@@ -15,13 +15,7 @@ class SongService with ReactiveServiceMixin {
   ReactiveValue<List<Song>> get allSongs => _allSongs;
 
   final ReactiveValue<Song> _currentSong = ReactiveValue<Song>(
-    Song(
-      id: ConstValues.emptySongID,
-      title: '',
-      composer: '',
-      arrangers: [],
-      tempo: 0,
-    ),
+    ConstValues.emptySong,
   );
   ReactiveValue<Song> get currentSong => _currentSong;
 
@@ -41,17 +35,12 @@ class SongService with ReactiveServiceMixin {
 
   void setCurrentSong() {
     if (_currentIndex < 0) {
-      _currentSong.value = Song(
-        id: ConstValues.emptySongID,
-        title: '',
-        composer: '',
-        arrangers: [],
-        tempo: 0,
+      _currentSong.value = ConstValues.emptySong;
+    } else {
+      _currentSong.value = _allSongs.value.firstWhere(
+        (e) => e.id == _queuedSongIds[_currentIndex],
       );
-    } else {}
-    _currentSong.value = _allSongs.value.firstWhere(
-      (e) => e.id == _queuedSongIds[_currentIndex],
-    );
+    }
   }
 
   SongService() {
@@ -98,10 +87,14 @@ class SongService with ReactiveServiceMixin {
     }
   }
 
-  void setTempo(double tempo) {}
+  void setTempo(double tempo) {
+    _currentSong.value.tempo = tempo;
+    notifyListeners();
+  }
 
   void clearSongQueue() {
     _currentIndex = -1;
     _queuedSongIds = [];
+    _currentSong.value = ConstValues.emptySong;
   }
 }

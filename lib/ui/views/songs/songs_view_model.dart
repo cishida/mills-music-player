@@ -3,14 +3,14 @@ import 'package:mills_music_player/models/song/song.dart';
 import 'package:mills_music_player/services/song/song_service.dart';
 import 'package:stacked/stacked.dart';
 
-class SongsViewModel extends ReactiveViewModel {
-  final _songService = locator<SongService>();
-  List<Song> get songs {
-    return _songService.allSongs.value;
-  }
+class SongsViewModel extends BaseViewModel {
+  // final _songService = locator<SongService>();
+  // List<Song> get songs {
+  //   return _songService.allSongs.value;
+  // }
 
-  @override
-  List<ReactiveServiceMixin> get reactiveServices => [
-        _songService,
-      ];
+  // @override
+  // List<ReactiveServiceMixin> get reactiveServices => [
+  //       _songService,
+  //     ];
 }

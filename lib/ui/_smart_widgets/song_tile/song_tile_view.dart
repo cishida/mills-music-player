@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:mills_music_player/_constants/_colors.dart';
 import 'package:mills_music_player/_utils/duration_util.dart';
 import 'package:mills_music_player/models/song/song.dart';
+import 'package:mills_music_player/ui/_dumb_widgets/text/tempo_percent.dart';
 import 'package:mills_music_player/ui/_smart_widgets/song_tile/song_tile_view_model.dart';
 import 'package:stacked/stacked.dart';
 
@@ -41,8 +42,8 @@ class SongTileView extends StatelessWidget {
                   child: Column(
                     crossAxisAlignment: CrossAxisAlignment.start,
                     children: [
-                      Text(
-                        'Test tempo: ${song.tempo}',
+                      TempoPercent(
+                        value: song.tempo,
                         style: const TextStyle(
                           color: Colors.black,
                           fontSize: 18.0,

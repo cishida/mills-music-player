@@ -46,7 +46,7 @@ class BottomNavViewModel extends ReactiveViewModel {
   }
 
   bool get shouldShowPlayer =>
-      _songService.currentSong.value.id != ConstValues.emptySongID;
+      _songService.currentSong.value.id != ConstValues.emptySong.id;
 
   @override
   List<ReactiveServiceMixin> get reactiveServices => [

@@ -1,9 +1,16 @@
 import 'package:azlistview/azlistview.dart';
+import 'package:mills_music_player/app/app.locator.dart';
 import 'package:mills_music_player/models/az_item/az_item.dart';
 import 'package:mills_music_player/models/song/song.dart';
+import 'package:mills_music_player/services/song/song_service.dart';
 import 'package:stacked/stacked.dart';
 
-class AZSongListViewModel extends BaseViewModel {
+class AZSongListViewModel extends ReactiveViewModel {
+  final _songService = locator<SongService>();
+  List<Song> get songs {
+    return _songService.allSongs.value;
+  }
+
   List<ISuspensionBean> _songData = [];
   List<ISuspensionBean> get songData => _songData;
 
@@ -16,7 +23,7 @@ class AZSongListViewModel extends BaseViewModel {
     ).length;
   }
 
-  void setSongData(List<Song> songs) {
+  void setSongData() {
     _sortedSongs = songs.toList();
     _sortedSongs.sort(
       (a, b) => a.title.compareTo(b.title),
@@ -32,4 +39,9 @@ class AZSongListViewModel extends BaseViewModel {
     SuspensionUtil.sortListBySuspensionTag(_songData);
     SuspensionUtil.setShowSuspensionStatus(_songData);
   }
+
+  @override
+  List<ReactiveServiceMixin> get reactiveServices => [
+        _songService,
+      ];
 }

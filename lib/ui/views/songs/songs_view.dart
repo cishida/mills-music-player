@@ -24,9 +24,7 @@ class SongsView extends StatelessWidget {
               )
             ];
           },
-          body: AZSongListView(
-            unsortedSongs: model.songs,
-          ),
+          body: const AZSongListView(),
         );
       },
     );
