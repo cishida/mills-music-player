@@ -101,26 +101,28 @@ class _MiniplayerViewState extends State<MiniplayerView>
                     size: 30.0,
                     color: Colors.white,
                   ),
-                  Column(
-                    children: [
-                      const SizedBox(
-                        height: 8.0,
-                      ),
-                      CustomTextScroll(
-                        text: model.currentSong.title,
-                        style: const TextStyle(
-                          fontSize: 20,
-                          fontWeight: FontWeight.w500,
+                  Expanded(
+                    child: Column(
+                      children: [
+                        const SizedBox(
+                          height: 8.0,
                         ),
-                      ),
-                      // CustomTextScroll(
-                      //   text: model.selectedSong.artists.join(', '),
-                      //   style: const TextStyle(
-                      //     fontSize: 16,
-                      //     color: ConstColors.navGray,
-                      //   ),
-                      // ),
-                    ],
+                        CustomTextScroll(
+                          text: model.currentSong.title,
+                          style: const TextStyle(
+                            fontSize: 20,
+                            fontWeight: FontWeight.w500,
+                          ),
+                        ),
+                        // CustomTextScroll(
+                        //   text: model.selectedSong.artists.join(', '),
+                        //   style: const TextStyle(
+                        //     fontSize: 16,
+                        //     color: ConstColors.navGray,
+                        //   ),
+                        // ),
+                      ],
+                    ),
                   ),
                   IconButton(
                     onPressed: model.closePlayer,
