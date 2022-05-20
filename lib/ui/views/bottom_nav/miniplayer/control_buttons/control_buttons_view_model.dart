@@ -7,9 +7,12 @@ class ControlButtonsViewModel extends ReactiveViewModel {
   final SongService _songService = locator<SongService>();
   Song get currentSong => _songService.currentSong.value;
 
-  void setTempo(double tempo) {
-    _songService.setTempo(tempo);
-    notifyListeners();
+  void nextSong() {
+    _songService.nextSong();
+  }
+
+  void previousSong() {
+    _songService.previousSong();
   }
 
   @override

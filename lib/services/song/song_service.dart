@@ -19,6 +19,18 @@ class SongService with ReactiveServiceMixin {
   );
   ReactiveValue<Song> get currentSong => _currentSong;
 
+  void _createFakerSongs() {
+    _allSongs.value = _songFactory.generateFakeList(length: 500);
+  }
+
+  SongService() {
+    _createFakerSongs();
+    listenToReactiveValues([
+      _allSongs,
+      _currentSong,
+    ]);
+  }
+
   void setQueuedIds(List<Song> songs) {
     if (songs.isEmpty) {
       List<Song> sortedAllSongs = _allSongs.value.toList();
@@ -41,18 +53,6 @@ class SongService with ReactiveServiceMixin {
         (e) => e.id == _queuedSongIds[_currentIndex],
       );
     }
-  }
-
-  SongService() {
-    _createFakerSongs();
-    listenToReactiveValues([
-      _allSongs,
-      _currentSong,
-    ]);
-  }
-
-  void _createFakerSongs() {
-    _allSongs.value = _songFactory.generateFakeList(length: 500);
   }
 
   void selectSong({
@@ -79,12 +79,16 @@ class SongService with ReactiveServiceMixin {
     if (_currentIndex > 0) {
       _currentIndex--;
     }
+
+    setCurrentSong();
   }
 
   void nextSong() {
     if (_currentIndex < _queuedSongIds.length) {
       _currentIndex++;
     }
+
+    setCurrentSong();
   }
 
   void setTempo(double tempo) {

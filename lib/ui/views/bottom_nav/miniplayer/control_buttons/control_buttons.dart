@@ -32,9 +32,7 @@ class ControlButtons extends StatelessWidget {
                 IconButton(
                   icon: const Icon(Icons.skip_previous_rounded),
                   iconSize: 48.0,
-                  onPressed: () {
-                    debugPrint('Previous song');
-                  },
+                  onPressed: model.previousSong,
                 ),
 
                 /// This StreamBuilder rebuilds whenever the player state changes, which
@@ -79,9 +77,7 @@ class ControlButtons extends StatelessWidget {
                 IconButton(
                   icon: const Icon(Icons.skip_next_rounded),
                   iconSize: 48.0,
-                  onPressed: () {
-                    debugPrint('Next song');
-                  },
+                  onPressed: model.nextSong,
                 ),
 
                 // Opens tempo slider dialog
