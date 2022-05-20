@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:mills_music_player/models/album/album.dart';
+import 'package:mills_music_player/ui/_dumb_widgets/nav/sliver_nav_bar.dart';
 import 'package:mills_music_player/ui/_dumb_widgets/nav/top_nav_bar.dart';
 import 'package:mills_music_player/ui/_smart_widgets/song_tile/song_tile_view.dart';
 import 'package:mills_music_player/ui/views/albums/album/album_view_model.dart';
@@ -18,31 +19,53 @@ class AlbumView extends StatelessWidget {
     return ViewModelBuilder<AlbumViewModel>.reactive(
       viewModelBuilder: () => AlbumViewModel(),
       builder: (context, model, child) {
-        return Scaffold(
-          body: Column(
-            children: [
-              TopNavBar(
+        return NestedScrollView(
+          headerSliverBuilder: (
+            BuildContext context,
+            bool innerBoxIsScrolled,
+          ) {
+            return <Widget>[
+              SliverNavBar(
                 title: album.title,
-                subtitle: album.artists.join(','),
-                goBack: model.goBack,
-                trailing: Text(
-                  '${album.songs.length.toString()} songs',
-                  textAlign: TextAlign.right,
-                ),
+                previousPageTitle: 'Albums',
               ),
-              Expanded(
-                child: ListView.builder(
-                  shrinkWrap: true,
-                  itemCount: album.songs.length,
-                  itemBuilder: (context, index) => SongTileView(
-                    song: album.songs[index],
-                    songs: album.songs,
-                  ),
-                ),
-              ),
-            ],
+            ];
+          },
+          body: ListView.builder(
+            shrinkWrap: true,
+            physics: const NeverScrollableScrollPhysics(),
+            itemCount: album.songs.length,
+            itemBuilder: (context, index) => SongTileView(
+              song: album.songs[index],
+              songs: album.songs,
+            ),
           ),
         );
+        // return Scaffold(
+        //   body: Column(
+        //     children: [
+        //       TopNavBar(
+        //         title: album.title,
+        //         subtitle: album.artists.join(','),
+        //         goBack: model.goBack,
+        //         trailing: Text(
+        //           '${album.songs.length.toString()} songs',
+        //           textAlign: TextAlign.right,
+        //         ),
+        //       ),
+        //       Expanded(
+        //         child: ListView.builder(
+        //           shrinkWrap: true,
+        //           itemCount: album.songs.length,
+        //           itemBuilder: (context, index) => SongTileView(
+        //             song: album.songs[index],
+        //             songs: album.songs,
+        //           ),
+        //         ),
+        //       ),
+        //     ],
+        //   ),
+        // );
       },
     );
   }

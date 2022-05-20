@@ -13,7 +13,7 @@ class LandingSubheader extends StatelessWidget {
       textAlign: TextAlign.center,
       style: TextStyle(
         fontSize: 16.0,
-        color: ConstColors.offWhite,
+        color: Colors.white,
         fontWeight: FontWeight.bold,
       ),
     );

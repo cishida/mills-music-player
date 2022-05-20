@@ -1,3 +1,4 @@
+import 'package:mills_music_player/_constants/_values.dart';
 import 'package:mills_music_player/models/factories/playlist_factory.dart';
 import 'package:mills_music_player/models/playlist/playlist.dart';
 import 'package:stacked/stacked.dart';
@@ -9,7 +10,9 @@ class PlaylistService with ReactiveServiceMixin {
   final _playlistFactory = PlaylistFactory();
 
   final ReactiveValue<List<Playlist>> _reactivePlaylists =
-      ReactiveValue<List<Playlist>>([]);
+      ReactiveValue<List<Playlist>>(
+    [ConstValues.favoritesPlaylist],
+  );
   ReactiveValue<List<Playlist>> get reactivePlaylists => _reactivePlaylists;
 
   PlaylistService() {
@@ -18,7 +21,10 @@ class PlaylistService with ReactiveServiceMixin {
   }
 
   void _createFakerPlaylists() {
-    _reactivePlaylists.value = _playlistFactory.generateFakeList(length: 2);
+    _reactivePlaylists.value.addAll(
+      _playlistFactory.generateFakeList(length: 2),
+    );
+    notifyListeners();
   }
 
   void createPlaylist({

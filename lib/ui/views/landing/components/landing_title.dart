@@ -13,7 +13,7 @@ class LandingTitle extends StatelessWidget {
       textAlign: TextAlign.center,
       style: TextStyle(
         fontSize: 32.0,
-        color: ConstColors.offWhite,
+        color: Colors.white,
         fontWeight: FontWeight.bold,
       ),
     );

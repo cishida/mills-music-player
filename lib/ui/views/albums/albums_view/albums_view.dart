@@ -3,6 +3,7 @@ import 'package:flutter/material.dart';
 import 'package:mills_music_player/_constants/_colors.dart';
 import 'package:mills_music_player/_utils/plurals_util.dart';
 import 'package:mills_music_player/models/album/album.dart';
+import 'package:mills_music_player/ui/_dumb_widgets/nav/sliver_nav_bar.dart';
 import 'package:mills_music_player/ui/views/albums/albums_view/albums_view_model.dart';
 import 'package:stacked/stacked.dart';
 
@@ -22,11 +23,9 @@ class AlbumsView extends StatelessWidget {
             bool innerBoxIsScrolled,
           ) {
             return <Widget>[
-              const CupertinoSliverNavigationBar(
-                largeTitle: Text('Albums'),
-                transitionBetweenRoutes: false,
-                automaticallyImplyLeading: false,
-              )
+              const SliverNavBar(
+                title: 'Albums',
+              ),
             ];
           },
           body: ListView.builder(
@@ -40,7 +39,7 @@ class AlbumsView extends StatelessWidget {
                 child: Column(
                   children: [
                     ListTile(
-                      selectedColor: ConstColors.offWhite,
+                      // selectedColor: ConstColors.offWhite,
                       onTap: () => model.onAlbumTap(
                         context,
                         album,

@@ -43,7 +43,9 @@ class TopNavBar extends StatelessWidget {
               padding: const EdgeInsets.symmetric(horizontal: 10.0),
               child: Column(
                 children: [
-                  CustomTextScroll(text: title),
+                  CustomTextScroll(
+                    text: title,
+                  ),
                   if (subtitle != '')
                     CustomTextScroll(
                       text: subtitle,

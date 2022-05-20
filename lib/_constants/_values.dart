@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:mills_music_player/models/page_info.dart';
+import 'package:mills_music_player/models/playlist/playlist.dart';
 import 'package:mills_music_player/models/song/song.dart';
 import 'package:mills_music_player/ui/views/albums/albums_view/albums_view.dart';
 import 'package:mills_music_player/ui/views/songs/songs_view.dart';
@@ -13,13 +14,18 @@ class ConstValues {
   static const double azHeight = 0.5;
   static const double miniplayerHeight = 200;
 
-  // static const String emptySongID = 'EMPTY_SONG_ID';
   static Song emptySong = Song(
     id: 'EMPTY_SONG_ID',
     title: '',
     composer: '',
     arrangers: [],
     tempo: 0,
+  );
+  static Playlist favoritesPlaylist = Playlist(
+    id: 'FAVORITES',
+    title: 'Favorites',
+    createdAt: DateTime.now(),
+    songs: [],
   );
 
   static List<PageInfo> pageInfos = [

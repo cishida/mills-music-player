@@ -2,6 +2,7 @@ import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:mills_music_player/models/playlist/playlist.dart';
 import 'package:mills_music_player/ui/_dumb_widgets/buttons/full_width_pill_button.dart';
+import 'package:mills_music_player/ui/_dumb_widgets/nav/sliver_nav_bar.dart';
 import 'package:mills_music_player/ui/views/playlists/_components/playlist_tile.dart';
 import 'package:mills_music_player/ui/views/playlists/new_playlist/new_playlist_view.dart';
 import 'package:mills_music_player/ui/views/playlists/playlists_view_model.dart';
@@ -37,11 +38,9 @@ class PlaylistsView extends StatelessWidget {
               bool innerBoxIsScrolled,
             ) {
               return <Widget>[
-                const CupertinoSliverNavigationBar(
-                  largeTitle: Text('Playlists'),
-                  transitionBetweenRoutes: false,
-                  automaticallyImplyLeading: false,
-                )
+                const SliverNavBar(
+                  title: 'Playlists',
+                ),
               ];
             },
             body: Column(

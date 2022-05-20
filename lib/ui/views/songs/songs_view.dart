@@ -1,4 +1,7 @@
 import 'package:flutter/cupertino.dart';
+import 'package:flutter/material.dart';
+import 'package:mills_music_player/theme.dart';
+import 'package:mills_music_player/ui/_dumb_widgets/nav/sliver_nav_bar.dart';
 import 'package:mills_music_player/ui/_smart_widgets/song_lists/az_song_list/az_song_list_view.dart';
 import 'package:mills_music_player/ui/views/songs/songs_view_model.dart';
 import 'package:stacked/stacked.dart';
@@ -17,11 +20,9 @@ class SongsView extends StatelessWidget {
             bool innerBoxIsScrolled,
           ) {
             return <Widget>[
-              const CupertinoSliverNavigationBar(
-                largeTitle: Text('Songs'),
-                transitionBetweenRoutes: false,
-                automaticallyImplyLeading: false,
-              )
+              const SliverNavBar(
+                title: 'Songs',
+              ),
             ];
           },
           body: const AZSongListView(),

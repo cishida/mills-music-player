@@ -1,5 +1,4 @@
 import 'package:mills_music_player/services/counter_service.dart';
-import 'package:mills_music_player/services/player/player_service.dart';
 import 'package:mills_music_player/services/playlist/playlist_service.dart';
 import 'package:mills_music_player/services/song/song_service.dart';
 import 'package:mills_music_player/ui/views/albums/album/album_view.dart';

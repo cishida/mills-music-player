@@ -8,45 +8,58 @@ ThemeData theme() {
     primaryColor: ConstColors.primary,
     fontFamily: 'SourceSansPro',
     brightness: Brightness.light,
+    // scaffoldBackgroundColor: Colors.black,
+    // dividerColor: ConstColors.divider,
     // errorColor: ConstColors.error,
-    bottomSheetTheme:
-        const BottomSheetThemeData(backgroundColor: Colors.transparent),
-    textTheme: TextTheme(
-      button: const TextStyle(
+    bottomSheetTheme: const BottomSheetThemeData(
+      backgroundColor: Colors.transparent,
+    ),
+    textTheme: const TextTheme(
+      headline1: TextStyle(
+        fontSize: 36.0,
+        fontWeight: FontWeight.w600,
         color: Colors.white,
-        fontSize: 18.0,
+      ),
+      headline2: TextStyle(
+        fontSize: 24.0,
         fontWeight: FontWeight.w600,
-      ),
-      headline5: const TextStyle(
-        fontSize: 22.0,
-        fontWeight: FontWeight.w600,
-        color: ConstColors.offBlack,
-      ),
-      headline6: const TextStyle(
-        color: Colors.black,
-        fontSize: 20.0,
-        fontWeight: FontWeight.w600,
-        letterSpacing: .15,
-      ),
-      subtitle1: TextStyle(
-        fontSize: 18.0,
-        fontWeight: FontWeight.w400,
-        color: Colors.black.withOpacity(.5),
-        height: 24 / 17,
-      ),
-      subtitle2: TextStyle(
-        color: Colors.black.withOpacity(0.5),
-        fontSize: 17.0,
-        fontWeight: FontWeight.w400,
-        letterSpacing: .15,
-        height: 24 / 17,
-      ),
-      bodyText1: const TextStyle(
         color: Colors.white,
-        fontSize: 16.0,
-        fontWeight: FontWeight.w400,
-        height: 22 / 16,
       ),
+      // button: const TextStyle(
+      //   color: Colors.white,
+      //   fontSize: 18.0,
+      //   fontWeight: FontWeight.w600,
+      // ),
+      // headline5: const TextStyle(
+      //   fontSize: 22.0,
+      //   fontWeight: FontWeight.w600,
+      //   color: ConstColors.offBlack,
+      // ),
+      // headline6: const TextStyle(
+      //   color: Colors.black,
+      //   fontSize: 20.0,
+      //   fontWeight: FontWeight.w600,
+      //   letterSpacing: .15,
+      // ),
+      // subtitle1: TextStyle(
+      //   fontSize: 18.0,
+      //   fontWeight: FontWeight.w400,
+      //   color: Colors.black.withOpacity(.5),
+      //   height: 24 / 17,
+      // ),
+      // subtitle2: TextStyle(
+      //   color: Colors.black.withOpacity(0.5),
+      //   fontSize: 17.0,
+      //   fontWeight: FontWeight.w400,
+      //   letterSpacing: .15,
+      //   height: 24 / 17,
+      // ),
+      // bodyText1: const TextStyle(
+      //   color: Colors.white,
+      //   fontSize: 16.0,
+      //   fontWeight: FontWeight.w400,
+      //   height: 22 / 16,
+      // ),
     ),
     // accentColor: Colors.orange,
     // hintColor: Colors.white,

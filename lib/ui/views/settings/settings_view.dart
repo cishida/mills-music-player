@@ -1,4 +1,5 @@
 import 'package:flutter/cupertino.dart';
+import 'package:mills_music_player/ui/_dumb_widgets/nav/sliver_nav_bar.dart';
 import 'package:mills_music_player/ui/views/settings/settings_view_model.dart';
 import 'package:stacked/stacked.dart';
 
@@ -16,11 +17,9 @@ class SettingsView extends StatelessWidget {
             bool innerBoxIsScrolled,
           ) {
             return <Widget>[
-              const CupertinoSliverNavigationBar(
-                largeTitle: Text('Settings'),
-                transitionBetweenRoutes: false,
-                automaticallyImplyLeading: false,
-              )
+              const SliverNavBar(
+                title: 'Settings',
+              ),
             ];
           },
           body: const Center(

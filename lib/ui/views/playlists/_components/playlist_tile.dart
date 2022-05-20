@@ -20,7 +20,7 @@ class PlaylistTile extends StatelessWidget {
       child: Column(
         children: [
           ListTile(
-            selectedColor: ConstColors.offWhite,
+            // selectedColor: ConstColors.offWhite,
             onTap: () => onTap(),
             title: Text(
               playlist.title,

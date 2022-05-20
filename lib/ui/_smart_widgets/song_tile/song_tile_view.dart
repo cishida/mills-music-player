@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:mills_music_player/_constants/_colors.dart';
 import 'package:mills_music_player/_utils/duration_util.dart';
 import 'package:mills_music_player/models/song/song.dart';
+import 'package:mills_music_player/ui/_dumb_widgets/text/custom_text_scroll.dart';
 import 'package:mills_music_player/ui/_dumb_widgets/text/tempo_percent.dart';
 import 'package:mills_music_player/ui/_smart_widgets/song_tile/song_tile_view_model.dart';
 import 'package:stacked/stacked.dart';
@@ -31,58 +32,77 @@ class SongTileView extends StatelessWidget {
             songs,
           ),
           child: Container(
-            width: double.infinity,
-            color: Colors.white,
-            padding: EdgeInsets.only(
-              right: isAlphabetical ? 50 : 16.0,
-            ),
+            // width: double.infinity,
+            // elevation: 8.0,
+            // margin: const EdgeInsets.symmetric(
+            //   horizontal: 10.0,
+            //   vertical: 6.0,
+            // ),
+            // color: ConstColors.secondaryBackground,
+            // padding: EdgeInsets.only(
+            //   right: isAlphabetical ? 50 : 16.0,
+            // ),
             child: Column(
+              mainAxisAlignment: MainAxisAlignment.spaceBetween,
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
                 Padding(
-                  padding: const EdgeInsets.symmetric(
-                    horizontal: 16.0,
-                    vertical: 8.0,
+                  padding: EdgeInsets.only(
+                    left: 16.0,
+                    right: isAlphabetical ? 50 : 16.0,
+                    top: 8.0,
+                    bottom: 8.0,
                   ),
-                  child: Column(
-                    crossAxisAlignment: CrossAxisAlignment.start,
+                  child: Row(
+                    // mainAxisAlignment: MainAxisAlignment.spaceBetween,
                     children: [
-                      Text(
-                        song.title,
-                        style: const TextStyle(
-                          color: Colors.black,
-                          fontSize: 18.0,
+                      Expanded(
+                        child: Column(
+                          crossAxisAlignment: CrossAxisAlignment.start,
+                          children: [
+                            CustomTextScroll(
+                              text: song.title,
+                              style: const TextStyle(
+                                color: Colors.black,
+                                fontSize: 22.0,
+                              ),
+                            ),
+                            CustomTextScroll(
+                              text: 'Composed by ${song.composer}',
+                              style: const TextStyle(
+                                color: ConstColors.navGray,
+                                fontSize: 16.0,
+                              ),
+                            ),
+                            CustomTextScroll(
+                              text: 'Arranged by ${song.arrangers.join(', ')}',
+                              style: const TextStyle(
+                                color: ConstColors.navGray,
+                                fontSize: 16.0,
+                              ),
+                            ),
+                            Text(
+                              isSelected
+                                  ? 'Now Playing'
+                                  : DurationUtil.format(song.duration),
+                              style: TextStyle(
+                                color: isSelected
+                                    ? Colors.orange
+                                    : ConstColors.navGray,
+                              ),
+                            ),
+                            // TempoPercent(
+                            //   value: song.tempo,
+                            //   style: const TextStyle(
+                            //     color: Colors.black,
+                            //     fontSize: 15.0,
+                            //   ),
+                            // ),
+                          ],
                         ),
                       ),
-                      Text(
-                        'Composed by ${song.composer}',
-                        style: const TextStyle(
-                          color: ConstColors.navGray,
-                          fontSize: 16.0,
-                        ),
-                      ),
-                      Text(
-                        'Arranged by ${song.arrangers.join(', ')}',
-                        style: const TextStyle(
-                          color: ConstColors.navGray,
-                          fontSize: 16.0,
-                        ),
-                      ),
-                      TempoPercent(
-                        value: song.tempo,
-                        style: const TextStyle(
-                          color: Colors.black,
-                          fontSize: 15.0,
-                        ),
-                      ),
-                      Text(
-                        isSelected
-                            ? 'Now Playing'
-                            : DurationUtil.format(song.duration),
-                        style: TextStyle(
-                          color:
-                              isSelected ? Colors.orange : ConstColors.navGray,
-                        ),
+                      Icon(
+                        Icons.star_border,
                       ),
                     ],
                   ),
@@ -90,6 +110,7 @@ class SongTileView extends StatelessWidget {
                 const Divider(
                   color: ConstColors.lightDivider,
                   height: 1.0,
+                  endIndent: 0,
                 ),
               ],
             ),
