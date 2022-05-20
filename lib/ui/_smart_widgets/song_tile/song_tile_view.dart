@@ -11,10 +11,12 @@ class SongTileView extends StatelessWidget {
     Key? key,
     required this.song,
     this.isAlphabetical = false,
+    this.songs = const [],
   }) : super(key: key);
 
   final Song song;
   final bool isAlphabetical;
+  final List<Song> songs;
 
   @override
   Widget build(BuildContext context) {
@@ -24,7 +26,10 @@ class SongTileView extends StatelessWidget {
         bool isSelected = model.currentSong.id == song.id;
 
         return InkWell(
-          onTap: () => model.selectSong(song),
+          onTap: () => model.selectSong(
+            song,
+            songs,
+          ),
           child: Container(
             width: double.infinity,
             color: Colors.white,

@@ -7,9 +7,13 @@ class SongTileViewModel extends ReactiveViewModel {
   final SongService _songService = locator<SongService>();
   Song get currentSong => _songService.currentSong.value;
 
-  void selectSong(Song song) {
+  void selectSong(
+    Song song,
+    List<Song> songs,
+  ) {
     _songService.selectSong(
       song: song,
+      songs: songs,
     );
   }
 
