@@ -3,6 +3,7 @@ import 'package:just_audio/just_audio.dart';
 import 'package:mills_music_player/_utils/just_audio_common.dart';
 import 'package:mills_music_player/ui/_dumb_widgets/text/tempo_percent.dart';
 import 'package:mills_music_player/ui/views/bottom_nav/miniplayer/control_buttons/control_buttons_view_model.dart';
+import 'package:mills_music_player/ui/views/bottom_nav/miniplayer/control_buttons/tempo_dialog/tempo_dialog_view.dart';
 import 'package:stacked/stacked.dart';
 
 class ControlButtons extends StatelessWidget {
@@ -55,13 +56,15 @@ class ControlButtons extends StatelessWidget {
     return ViewModelBuilder<ControlButtonsViewModel>.reactive(
       viewModelBuilder: () => ControlButtonsViewModel(),
       builder: (context, model, child) {
+        final double tempoIconWidth = 55;
+
         return Column(
           children: [
             Row(
               mainAxisSize: MainAxisSize.min,
               children: [
-                const SizedBox(
-                  width: 55,
+                SizedBox(
+                  width: tempoIconWidth,
                 ),
 
                 IconButton(
@@ -145,10 +148,24 @@ class ControlButtons extends StatelessWidget {
                 // Opens speed slider dialog
                 GestureDetector(
                   onTap: () {
-                    showTempoDialog(
-                      context,
-                      model,
+                    showDialog<void>(
+                      context: context,
+                      builder: (context) => const AlertDialog(
+                        contentPadding: EdgeInsets.symmetric(
+                          vertical: 10.0,
+                          horizontal: 10.0,
+                        ),
+                        title: Text(
+                          'Adjust Tempo',
+                          textAlign: TextAlign.center,
+                        ),
+                        content: TempoDialogView(),
+                      ),
                     );
+                    // showTempoDialog(
+                    //   context,
+                    //   model,
+                    // );
 
                     // showSliderDialog(
                     //   context: context,
@@ -161,6 +178,7 @@ class ControlButtons extends StatelessWidget {
                     // );
                   },
                   child: Container(
+                    width: tempoIconWidth,
                     margin: const EdgeInsets.only(
                       left: 20.0,
                       top: 15.0,
@@ -183,13 +201,13 @@ class ControlButtons extends StatelessWidget {
                 ),
               ],
             ),
-            Slider(
-              divisions: 190,
-              min: 10,
-              max: 200,
-              value: model.currentSong.tempo,
-              onChanged: (tempo) => model.setTempo(tempo),
-            ),
+            // Slider(
+            //   divisions: 190,
+            //   min: 10,
+            //   max: 200,
+            //   value: model.currentSong.tempo,
+            //   onChanged: (tempo) => model.setTempo(tempo),
+            // ),
           ],
         );
       },

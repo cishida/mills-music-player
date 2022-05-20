@@ -42,13 +42,6 @@ class SongTileView extends StatelessWidget {
                   child: Column(
                     crossAxisAlignment: CrossAxisAlignment.start,
                     children: [
-                      TempoPercent(
-                        value: song.tempo,
-                        style: const TextStyle(
-                          color: Colors.black,
-                          fontSize: 18.0,
-                        ),
-                      ),
                       Text(
                         song.title,
                         style: const TextStyle(
@@ -68,6 +61,13 @@ class SongTileView extends StatelessWidget {
                         style: const TextStyle(
                           color: ConstColors.navGray,
                           fontSize: 16.0,
+                        ),
+                      ),
+                      TempoPercent(
+                        value: song.tempo,
+                        style: const TextStyle(
+                          color: Colors.black,
+                          fontSize: 15.0,
                         ),
                       ),
                       Text(
