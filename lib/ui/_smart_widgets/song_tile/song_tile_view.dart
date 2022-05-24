@@ -3,7 +3,6 @@ import 'package:mills_music_player/_constants/_colors.dart';
 import 'package:mills_music_player/_utils/duration_util.dart';
 import 'package:mills_music_player/models/song/song.dart';
 import 'package:mills_music_player/ui/_dumb_widgets/text/custom_text_scroll.dart';
-import 'package:mills_music_player/ui/_dumb_widgets/text/tempo_percent.dart';
 import 'package:mills_music_player/ui/_smart_widgets/song_tile/song_tile_view_model.dart';
 import 'package:stacked/stacked.dart';
 

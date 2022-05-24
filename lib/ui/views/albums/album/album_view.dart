@@ -1,7 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:mills_music_player/models/album/album.dart';
 import 'package:mills_music_player/ui/_dumb_widgets/nav/sliver_nav_bar.dart';
-import 'package:mills_music_player/ui/_dumb_widgets/nav/top_nav_bar.dart';
 import 'package:mills_music_player/ui/_smart_widgets/song_tile/song_tile_view.dart';
 import 'package:mills_music_player/ui/views/albums/album/album_view_model.dart';
 import 'package:stacked/stacked.dart';
@@ -19,25 +18,27 @@ class AlbumView extends StatelessWidget {
     return ViewModelBuilder<AlbumViewModel>.reactive(
       viewModelBuilder: () => AlbumViewModel(),
       builder: (context, model, child) {
-        return NestedScrollView(
-          headerSliverBuilder: (
-            BuildContext context,
-            bool innerBoxIsScrolled,
-          ) {
-            return <Widget>[
-              SliverNavBar(
-                title: album.title,
-                previousPageTitle: 'Albums',
+        return Scaffold(
+          body: NestedScrollView(
+            headerSliverBuilder: (
+              BuildContext context,
+              bool innerBoxIsScrolled,
+            ) {
+              return <Widget>[
+                SliverNavBar(
+                  title: album.title,
+                  previousPageTitle: 'Albums',
+                ),
+              ];
+            },
+            body: ListView.builder(
+              shrinkWrap: true,
+              physics: const NeverScrollableScrollPhysics(),
+              itemCount: album.songs.length,
+              itemBuilder: (context, index) => SongTileView(
+                song: album.songs[index],
+                songs: album.songs,
               ),
-            ];
-          },
-          body: ListView.builder(
-            shrinkWrap: true,
-            physics: const NeverScrollableScrollPhysics(),
-            itemCount: album.songs.length,
-            itemBuilder: (context, index) => SongTileView(
-              song: album.songs[index],
-              songs: album.songs,
             ),
           ),
         );

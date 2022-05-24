@@ -18,24 +18,26 @@ class PlaylistView extends StatelessWidget {
     return ViewModelBuilder<PlaylistViewModel>.reactive(
       viewModelBuilder: () => PlaylistViewModel(),
       builder: (context, model, child) {
-        return NestedScrollView(
-          headerSliverBuilder: (
-            BuildContext context,
-            bool innerBoxIsScrolled,
-          ) {
-            return <Widget>[
-              SliverNavBar(
-                title: playlist.title,
-                previousPageTitle: 'Playlists',
+        return Scaffold(
+          body: NestedScrollView(
+            headerSliverBuilder: (
+              BuildContext context,
+              bool innerBoxIsScrolled,
+            ) {
+              return <Widget>[
+                SliverNavBar(
+                  title: playlist.title,
+                  previousPageTitle: 'Playlists',
+                ),
+              ];
+            },
+            body: ListView.builder(
+              shrinkWrap: true,
+              itemCount: playlist.songs.length,
+              itemBuilder: (context, index) => SongTileView(
+                song: playlist.songs[index],
+                songs: playlist.songs,
               ),
-            ];
-          },
-          body: ListView.builder(
-            shrinkWrap: true,
-            itemCount: playlist.songs.length,
-            itemBuilder: (context, index) => SongTileView(
-              song: playlist.songs[index],
-              songs: playlist.songs,
             ),
           ),
         );
