@@ -15,6 +15,7 @@ class LandingView extends StatelessWidget {
 
     return ViewModelBuilder<LandingViewModel>.reactive(
       viewModelBuilder: () => LandingViewModel(),
+      onModelReady: (model) => model.initialise(),
       builder: (context, model, child) => Scaffold(
         body: Center(
           child: Stack(
@@ -50,20 +51,20 @@ class LandingView extends StatelessWidget {
                     ),
                     child: LandingTitle(),
                   ),
-                  const Padding(
-                    padding: EdgeInsets.symmetric(
-                      vertical: 15.0,
-                      horizontal: 30.0,
-                    ),
-                    child: LandingSubheader(),
-                  ),
-                  Padding(
-                    padding: const EdgeInsets.all(30.0),
-                    child: FullWidthPillButton(
-                      text: 'ENTER',
-                      onPressed: model.enter,
-                    ),
-                  ),
+                  // const Padding(
+                  //   padding: EdgeInsets.symmetric(
+                  //     vertical: 15.0,
+                  //     horizontal: 30.0,
+                  //   ),
+                  //   child: LandingSubheader(),
+                  // ),
+                  // Padding(
+                  //   padding: const EdgeInsets.all(30.0),
+                  //   child: FullWidthPillButton(
+                  //     text: 'ENTER',
+                  //     onPressed: model.enter,
+                  //   ),
+                  // ),
                 ],
               ),
             ],
