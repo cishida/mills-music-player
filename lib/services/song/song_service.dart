@@ -20,7 +20,7 @@ class SongService with ReactiveServiceMixin {
   ReactiveValue<Song> get currentSong => _currentSong;
 
   void _createFakerSongs() {
-    _allSongs.value = _songFactory.generateFakeList(length: 500);
+    _allSongs.value = _songFactory.generatePlaceholderList();
   }
 
   SongService() {
