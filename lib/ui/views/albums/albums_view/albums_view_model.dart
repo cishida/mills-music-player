@@ -9,7 +9,7 @@ class AlbumsViewModel extends BaseViewModel {
   List<Album> get albums => _albums;
 
   void createFakerAlbums() {
-    _albums = _albumFactory.generateFakeList(length: 30);
+    _albums = _albumFactory.generatePlaceholderList();
     _albums.sort(
       (a, b) => a.title.compareTo(b.title),
     );

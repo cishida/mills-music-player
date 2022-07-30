@@ -1,5 +1,6 @@
 import 'dart:math';
 
+import 'package:mills_music_player/_constants/_names.dart';
 import 'package:mills_music_player/app/app.locator.dart';
 import 'package:mills_music_player/models/factories/model_factory.dart';
 import 'package:mills_music_player/models/album/album.dart';
@@ -30,5 +31,30 @@ class AlbumFactory extends ModelFactory<Album> {
   @override
   List<Album> generateFakeList({required int length}) {
     return List.generate(length, (index) => generateFake());
+  }
+
+  List<Album> generatePlaceholderList() {
+    List<Album> albums = [];
+
+    for (var title in ConstNames.albums) {
+      final albumLength = 5 + _random.nextInt(15);
+      albums.add(
+        Album(
+          id: createFakeUuid(),
+          title: title,
+          artists: [
+            '${faker.person.firstName()} ${faker.person.lastName()}'.trim()
+          ],
+          songs: _songService.allSongs.value
+              .skip(index)
+              .take(albumLength)
+              .toList(),
+        ),
+      );
+
+      index += albumLength;
+    }
+
+    return albums;
   }
 }
